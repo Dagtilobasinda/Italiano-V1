@@ -346,6 +346,12 @@ body{background:var(--cream);color:var(--ink);font-family:"Inter",sans-serif;min
 </head>
 <body>
 
+<div style="position:fixed;top:10px;right:10px;z-index:9999">
+<button onclick="toggleMode()">V1 / V2</button>
+</div>
+
+<div id="v2app" style="display:none"></div>
+
 <!-- SIDEBAR -->
 <div class="menu-overlay" id="menuOverlay" onclick="closeSidebar()"></div>
 <div class="sidebar" id="sidebar">
@@ -1508,5 +1514,88 @@ function stToggleAnswer(btn) {
   btn.textContent = showing ? "Cevabı gizle ▴" : "Cevabı göster ▾";
 }
 </script>
+<script>
+// ================= V2 MODE =================
+
+let v2 = false;
+
+function toggleMode(){
+  v2 = !v2;
+
+  document.getElementById("v2app").style.display = v2 ? "block" : "none";
+  document.getElementById("app")?.style && (document.getElementById("app").style.display = v2 ? "none" : "block");
+
+  if(v2) startV2();
+}
+
+// ================= MINI DUOLINGO ENGINE =================
+
+const topics = [
+  {
+    q:"Io ___ medico",
+    options:["sono","sei","è","siamo"],
+    answer:0
+  },
+  {
+    q:"Come ___?",
+    options:["sei","sono","è","siamo"],
+    answer:0
+  },
+  {
+    q:"Ho ___ anni (25)",
+    options:["venti","venticinque","cinque","uno"],
+    answer:1
+  }
+];
+
+let index = 0;
+let score = 0;
+
+function startV2(){
+  index = 0;
+  score = 0;
+  renderV2();
+}
+
+function renderV2(){
+  const t = topics[index];
+
+  document.getElementById("v2app").innerHTML = `
+    <div style="border:1px solid #ccc;padding:20px;margin:20px">
+      <h2>🇮🇹 V2 Mode</h2>
+      <h3>${t.q}</h3>
+
+      ${t.options.map((o,i)=>
+        `<button onclick="checkV2(${i})">${o}</button>`
+      ).join("")}
+
+      <p>Score: ${score}</p>
+    </div>
+  `;
+}
+
+function checkV2(i){
+  const t = topics[index];
+
+  if(i === t.answer){
+    score++;
+    alert("Doğru ✅");
+  } else {
+    alert("Yanlış ❌");
+  }
+
+  index++;
+
+  if(index >= topics.length){
+    document.getElementById("v2app").innerHTML =
+      "<h2>V2 Bitti 🎉 Skor: "+score+"</h2>";
+    return;
+  }
+
+  renderV2();
+}
+</script>    
 </body>
 </html>
+
+    
