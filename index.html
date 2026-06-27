@@ -220,6 +220,128 @@ body{background:var(--cream);color:var(--ink);font-family:"Inter",sans-serif;min
 
 @media(max-width:420px){.scene{height:245px}.main-word{font-size:1.5rem}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}.sidebar{transition:none}}
+
+/* ══ GRAMMAR ENGINE PAGE ═════════════════════════════════ */
+.ge-wrap{max-width:600px;margin:0 auto}
+.ge-hero{text-align:center;padding:20px 0 16px}
+.ge-hero h2{font-family:"DM Serif Display",serif;font-size:1.6rem;letter-spacing:-.3px}
+.ge-hero h2 span{color:var(--terra);font-style:italic}
+.ge-hero p{font-size:.8rem;color:var(--muted);margin-top:3px}
+.ge-level-tabs{display:flex;gap:6px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+.ge-level-btn{padding:6px 16px;border-radius:99px;border:1.5px solid #d4c9bc;background:transparent;font-size:.75rem;color:var(--muted);cursor:pointer;transition:all .15s;font-family:"Inter",sans-serif;font-weight:500}
+.ge-level-btn.active{background:var(--terra);border-color:var(--terra);color:#fff;font-weight:600}
+.ge-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.ge-topic-card{background:var(--card-bg);border:1.5px solid #ede4d9;border-radius:14px;cursor:pointer;transition:box-shadow .15s,border-color .15s;overflow:hidden}
+.ge-topic-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);border-color:#d4a98a}
+.ge-topic-header{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.ge-topic-icon{font-size:1.4rem;width:32px;text-align:center;flex-shrink:0}
+.ge-topic-info{flex:1}
+.ge-topic-name{font-size:.95rem;font-weight:600;color:var(--ink)}
+.ge-topic-meta{font-size:.72rem;color:var(--muted);margin-top:2px}
+.ge-topic-badge{padding:2px 9px;border-radius:99px;font-size:.63rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.badge-a0{background:#EEF2FF;color:#4338CA}
+.badge-a1{background:#FEF3C7;color:#92400E}
+.badge-a2{background:#D1FAE5;color:#065F46}
+.ge-topic-arrow{color:#c8b8a8;font-size:.9rem;margin-left:4px}
+/* Grammar detail panel */
+.ge-detail{display:none;background:var(--card-bg);border:1.5px solid #ede4d9;border-radius:14px;padding:0;overflow:hidden;margin-bottom:12px}
+.ge-detail.open{display:block}
+.ge-detail-header{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #ede4d9;background:linear-gradient(135deg,#FFF5E8,#FDF0E0)}
+.ge-detail-back{background:none;border:none;cursor:pointer;color:var(--terra);font-size:1rem;padding:4px;line-height:1}
+.ge-detail-title{font-family:"DM Serif Display",serif;font-size:1.1rem;font-style:italic;color:var(--terra)}
+.ge-detail-body{padding:16px}
+.ge-section{margin-bottom:16px}
+.ge-section-label{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.ge-rule-box{background:#FFF8F0;border:1px solid #edd9c0;border-radius:10px;padding:12px 14px;font-size:.88rem;line-height:1.7;color:var(--ink)}
+.ge-rule-box strong{color:var(--terra)}
+.ge-compare-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.ge-compare-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.ge-compare-lang{font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.ge-compare-text{font-size:.85rem;color:var(--ink)}
+.ge-conj-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.ge-conj-table th{background:#F5EDE4;color:var(--muted);font-size:.65rem;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;text-align:left}
+.ge-conj-table td{padding:7px 10px;border-bottom:1px solid #ede4d9;color:var(--ink)}
+.ge-conj-table td:first-child{color:var(--muted);font-size:.8rem}
+.ge-conj-table td:last-child{font-family:"Lora",serif;font-weight:600;color:var(--terra)}
+.ge-ex-list{display:flex;flex-direction:column;gap:6px}
+.ge-ex-item{background:var(--surface);border-left:3px solid var(--terra);border-radius:0 8px 8px 0;padding:9px 12px}
+.ge-ex-it{font-family:"Lora",serif;font-size:.9rem;color:var(--ink)}
+.ge-ex-tr{font-size:.75rem;color:var(--muted);margin-top:2px}
+.ge-error-list{display:flex;flex-direction:column;gap:6px}
+.ge-error-item{display:flex;align-items:baseline;gap:8px;font-size:.85rem}
+.ge-err-wrong{color:var(--red2);text-decoration:line-through;font-family:"Lora",serif}
+.ge-err-right{color:var(--green);font-family:"Lora",serif;font-weight:600}
+.ge-summary-box{background:linear-gradient(135deg,#FFF5E8,#FEF3DC);border:1px solid #f0d9b0;border-radius:10px;padding:12px 14px}
+.ge-summary-box p{font-size:.85rem;line-height:1.8;color:var(--ink)}
+.ge-flashcards-inline{display:flex;gap:7px;flex-wrap:wrap}
+.ge-fc{background:#FFF8F0;border:1.5px solid #edd9c0;border-radius:8px;padding:7px 12px;font-size:.8rem}
+.ge-fc strong{color:var(--terra);display:block;font-family:"Lora",serif}
+.ge-formula-box{background:#F0F7FF;border:1.5px solid #BCD6EF;border-radius:10px;padding:10px 14px;font-family:monospace;font-size:.88rem;color:#1A365D;letter-spacing:.5px}
+
+/* ══ STORY READER PAGE ═══════════════════════════════════ */
+.st-wrap{max-width:600px;margin:0 auto}
+.st-hero{text-align:center;padding:20px 0 16px}
+.st-hero h2{font-family:"DM Serif Display",serif;font-size:1.6rem;letter-spacing:-.3px}
+.st-hero h2 span{color:var(--terra);font-style:italic}
+.st-hero p{font-size:.8rem;color:var(--muted);margin-top:3px}
+.st-level-tabs{display:flex;gap:6px;justify-content:center;margin-bottom:14px}
+.st-level-btn{padding:6px 16px;border-radius:99px;border:1.5px solid #d4c9bc;background:transparent;font-size:.75rem;color:var(--muted);cursor:pointer;transition:all .15s;font-family:"Inter",sans-serif;font-weight:500}
+.st-level-btn.active{background:var(--terra);border-color:var(--terra);color:#fff;font-weight:600}
+.st-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.st-card{background:var(--card-bg);border:1.5px solid #ede4d9;border-radius:14px;cursor:pointer;transition:box-shadow .15s,border-color .15s;overflow:hidden}
+.st-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);border-color:#d4a98a}
+.st-card-header{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.st-card-num{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--sun),var(--terra));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:#fff;flex-shrink:0}
+.st-card-info{flex:1}
+.st-card-title{font-size:.95rem;font-weight:600;color:var(--ink)}
+.st-card-meta{font-size:.72rem;color:var(--muted);margin-top:2px}
+.st-card-badge{padding:2px 9px;border-radius:99px;font-size:.63rem;font-weight:700;text-transform:uppercase}
+/* Story detail */
+.st-detail{display:none;margin-bottom:12px}
+.st-detail.open{display:block}
+.st-detail-header{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #ede4d9;background:linear-gradient(135deg,#FFF5E8,#FDF0E0);border-radius:14px 14px 0 0}
+.st-detail-back{background:none;border:none;cursor:pointer;color:var(--terra);font-size:1rem;padding:4px;line-height:1}
+.st-detail-title{font-family:"DM Serif Display",serif;font-size:1.1rem;font-style:italic;color:var(--terra);flex:1}
+.st-detail-body{background:var(--card-bg);border:1.5px solid #ede4d9;border-top:none;border-radius:0 0 14px 14px;padding:16px;overflow:hidden}
+.st-section-label{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;margin-top:16px}
+.st-section-label:first-child{margin-top:0}
+.st-meta-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.st-chip{background:#F5EDE4;color:var(--muted);padding:3px 10px;border-radius:99px;font-size:.7rem}
+.st-chip strong{color:var(--terra)}
+.st-story-text{font-family:"Lora",serif;font-size:.95rem;line-height:1.9;color:var(--ink);background:#FFFDF9;border-radius:10px;padding:14px 16px;border:1px solid #f0e8dc}
+.st-story-text p{margin-bottom:.6em}
+.st-grammar-highlights{display:flex;flex-direction:column;gap:6px}
+.st-highlight-item{display:flex;gap:10px;align-items:baseline;background:var(--surface);border-radius:8px;padding:8px 12px;border:1px solid var(--border)}
+.st-hl-it{font-family:"Lora",serif;font-size:.88rem;font-weight:600;color:var(--terra);min-width:80px}
+.st-hl-note{font-size:.8rem;color:var(--muted)}
+.st-vocab-list{display:flex;flex-direction:column;gap:5px}
+.st-vocab-item{display:flex;justify-content:space-between;align-items:baseline;padding:7px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--border)}
+.st-vocab-it{font-family:"Lora",serif;font-size:.88rem;font-weight:600;color:var(--ink)}
+.st-vocab-tr{font-size:.8rem;color:var(--muted)}
+.st-q-list{display:flex;flex-direction:column;gap:8px}
+.st-q-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:11px 14px}
+.st-q-num{font-size:.65rem;font-weight:700;letter-spacing:.8px;color:var(--terra);text-transform:uppercase}
+.st-q-text{font-size:.88rem;color:var(--ink);margin-top:3px;font-family:"Lora",serif}
+.st-q-answer{font-size:.8rem;color:var(--muted);margin-top:6px;display:none;padding-top:6px;border-top:1px dashed #e0d8d0}
+.st-q-answer.show{display:block}
+.st-q-toggle{background:none;border:none;font-size:.7rem;color:var(--terra);cursor:pointer;margin-top:5px;font-family:"Inter",sans-serif}
+.st-writing-box{background:#F0F7FF;border:1.5px solid #BCD6EF;border-radius:10px;padding:12px 14px}
+.st-writing-box p{font-family:"Lora",serif;font-size:.9rem;color:#1A365D;line-height:1.7}
+.st-tab-row{display:flex;gap:0;border-bottom:1px solid #ede4d9;margin:-16px -16px 16px;overflow-x:auto;scrollbar-width:none}
+.st-tab-row::-webkit-scrollbar{display:none}
+.st-tab{padding:11px 14px;font-size:.78rem;font-weight:500;color:var(--muted);cursor:pointer;border:none;background:none;font-family:"Inter",sans-serif;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.st-tab.active{color:var(--terra);border-bottom-color:var(--terra)}
+.st-tab-panel{display:none}
+.st-tab-panel.active{display:block}
+.st-exercise-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.st-ex-q{font-size:.88rem;font-family:"Lora",serif;color:var(--ink);margin-bottom:8px}
+.st-ex-choices{display:flex;flex-direction:column;gap:5px}
+.st-ex-choice{padding:8px 12px;border-radius:8px;border:1.5px solid #d4c9bc;background:transparent;font-size:.83rem;cursor:pointer;font-family:"Inter",sans-serif;transition:all .15s;text-align:left}
+.st-ex-choice:hover{border-color:var(--sun);background:#FFF8F0}
+.st-ex-choice.correct{border-color:var(--green);background:#E9F7EF;color:var(--green)}
+.st-ex-choice.wrong{border-color:var(--red);background:#FDECEA;color:var(--red2)}
+.st-progress-bar{height:4px;background:#e8ddd3;border-radius:99px;overflow:hidden;margin-bottom:12px}
+.st-progress-fill{height:100%;background:linear-gradient(90deg,var(--sun),var(--terra));border-radius:99px;transition:width .4s}
 </style>
 </head>
 <body>
@@ -229,7 +351,7 @@ body{background:var(--cream);color:var(--ink);font-family:"Inter",sans-serif;min
 <div class="sidebar" id="sidebar">
   <div class="sidebar-header">
     <div class="sidebar-title">Italiano</div>
-    <div class="sidebar-sub">Öğrenme Seti · 3 Araç</div>
+    <div class="sidebar-sub">Öğrenme Seti · 6 Araç</div>
   </div>
   <nav class="sidebar-nav">
     <div class="nav-item active" id="nav-words" onclick="showPage('words')">
@@ -246,6 +368,15 @@ body{background:var(--cream);color:var(--ink);font-family:"Inter",sans-serif;min
     <div class="nav-item" id="nav-quiz" onclick="showPage('quiz')">
       <span class="nav-icon">🧠</span> Adaptif Quiz
       <span id="nav-xp-badge" style="margin-left:auto;font-size:.68rem;color:var(--muted)">0 XP</span>
+    </div>
+    <div style="margin:8px 0 4px;padding:0 6px;font-size:.65rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)">Öğrenim Materyalleri</div>
+    <div class="nav-item" id="nav-grammar" onclick="showPage('grammar')">
+      <span class="nav-icon">📐</span> Grammer Engine
+      <span style="margin-left:auto;font-size:.68rem;color:var(--muted)">A0–A2</span>
+    </div>
+    <div class="nav-item" id="nav-stories" onclick="showPage('stories')">
+      <span class="nav-icon">📖</span> Story Reader
+      <span style="margin-left:auto;font-size:.68rem;color:var(--muted)">20</span>
     </div>
   </nav>
   <div class="sidebar-footer">GitHub Pages · A0–A2 · Quiz Engine v1</div>
@@ -397,6 +528,7 @@ body{background:var(--cream);color:var(--ink);font-family:"Inter",sans-serif;min
   </div>
 </div>
 
+
 <!-- ══ PAGE: DIARIO ═══════════════════════════════════════ -->
 <div class="page" id="page-diario">
   <div class="diario-wrap">
@@ -479,6 +611,107 @@ body{background:var(--cream);color:var(--ink);font-family:"Inter",sans-serif;min
   </div>
 </div>
 
+<!-- ══ PAGE: QUIZ ══════════════════════════════════════════ -->
+<div class="page" id="page-quiz">
+  <div class="page-header">
+    <h2>Adaptif <span>Quiz</span></h2>
+    <p id="quiz-subtitle">Bilgi grafiğine göre kişisel sorular</p>
+  </div>
+
+  <!-- Stats bar -->
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px" id="quiz-stats-bar">
+    <div class="badge">XP: <span id="qs-xp" style="color:var(--terra)">0</span></div>
+    <div class="badge">Streak: <span id="qs-streak" style="color:var(--green)">0</span> 🔥</div>
+    <div class="badge">Ders: <span id="qs-lesson" style="color:var(--muted)">—</span></div>
+  </div>
+
+  <!-- Knowledge Graph View -->
+  <div id="quiz-graph-panel" style="background:var(--card-bg);border:1.5px solid #ede4d9;border-radius:14px;padding:14px 16px;margin-bottom:14px">
+    <div style="font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">📊 Bilgi Grafiği</div>
+    <div id="quiz-graph-nodes" style="display:flex;flex-wrap:wrap;gap:7px"></div>
+  </div>
+
+  <!-- Question area -->
+  <div id="quiz-question-area" style="display:none">
+    <div style="font-size:.68rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px" id="q-type-label">ÇEVİRİ</div>
+    <div style="background:var(--card-bg);border:1.5px solid #ede4d9;border-radius:16px;padding:20px 18px;margin-bottom:14px;text-align:center">
+      <div style="font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,4vw,1.8rem);color:var(--ink);margin-bottom:6px;font-style:italic" id="q-text">—</div>
+      <div style="font-size:.75rem;color:var(--muted)" id="q-hint"></div>
+    </div>
+
+    <!-- Fill blank input -->
+    <div id="q-fill-area" style="display:none;margin-bottom:12px">
+      <input id="q-fill-input" type="text" placeholder="Cevabını yaz…"
+        style="width:100%;padding:11px 16px;border:1.5px solid #d4c9bc;border-radius:11px;font-size:.95rem;font-family:'Lora',serif;background:var(--card-bg);color:var(--ink);outline:none;transition:border-color .15s"
+        oninput="this.style.borderColor='#d4c9bc'" onkeydown="if(event.key==='Enter')quizCheckFill()">
+      <button onclick="quizCheckFill()" style="margin-top:8px;width:100%;padding:11px;border-radius:11px;border:none;background:var(--terra);color:#fff;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer">Kontrol Et</button>
+    </div>
+
+    <!-- Multiple choice options -->
+    <div id="q-mc-area" style="display:none;margin-bottom:12px">
+      <div id="q-mc-options" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+
+    <!-- Feedback -->
+    <div id="q-feedback" style="display:none;border-radius:11px;padding:13px 16px;margin-bottom:12px;font-size:.88rem;line-height:1.5"></div>
+
+    <!-- Next button -->
+    <button id="q-next-btn" onclick="quizNext()" style="display:none;width:100%;padding:12px;border-radius:11px;border:none;background:var(--sun);color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer">Sonraki Soru →</button>
+  </div>
+
+  <!-- Start / lesson select screen -->
+  <div id="quiz-start-screen">
+    <div style="display:flex;flex-direction:column;gap:8px" id="quiz-lesson-list"></div>
+    <button onclick="quizStartAdaptive()" style="margin-top:10px;width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--sun),var(--terra));color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.3px">🧠 Adaptif Mod — En Zayıf Dersten Başla</button>
+  </div>
+
+  <!-- Session done screen -->
+  <div id="quiz-done-screen" style="display:none;text-align:center;padding:30px 16px">
+    <div style="font-size:2.4rem;margin-bottom:10px">🎉</div>
+    <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;margin-bottom:6px">Tur Tamamlandı!</div>
+    <div id="q-done-stats" style="font-size:.85rem;color:var(--muted);margin-bottom:18px"></div>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <button onclick="quizStartAdaptive()" style="padding:10px 20px;border-radius:10px;border:none;background:var(--sun);color:#fff;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer">🧠 Adaptif Devam</button>
+      <button onclick="quizShowStart()" style="padding:10px 20px;border-radius:10px;border:1.5px solid #d4c9bc;background:transparent;color:var(--ink);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer">Ders Seç</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE: GRAMMAR ENGINE ════════════════════════════════ -->
+<div class="page" id="page-grammar">
+  <div class="ge-wrap">
+    <div class="ge-hero">
+      <h2>Grammer <span>Engine</span></h2>
+      <p>A0 · A1 · A2 · Kurallar, tablolar, örnekler</p>
+    </div>
+    <div class="ge-level-tabs">
+      <button class="ge-level-btn active" onclick="gSetLevel('all',this)">Tümü</button>
+      <button class="ge-level-btn" onclick="gSetLevel('A0',this)">A0</button>
+      <button class="ge-level-btn" onclick="gSetLevel('A1',this)">A1</button>
+      <button class="ge-level-btn" onclick="gSetLevel('A2',this)">A2</button>
+    </div>
+    <div id="ge-detail-panel"></div>
+    <div class="ge-grid" id="ge-grid"></div>
+  </div>
+</div>
+
+<!-- ══ PAGE: STORY READER ═════════════════════════════════ -->
+<div class="page" id="page-stories">
+  <div class="st-wrap">
+    <div class="st-hero">
+      <h2>Story <span>Reader</span></h2>
+      <p>20 hikaye · A1 → A2 · Okuduğunu anlama & gramer</p>
+    </div>
+    <div class="st-level-tabs">
+      <button class="st-level-btn active" onclick="stSetLevel('all',this)">Tümü</button>
+      <button class="st-level-btn" onclick="stSetLevel('A1',this)">A1</button>
+      <button class="st-level-btn" onclick="stSetLevel('A2',this)">A2</button>
+    </div>
+    <div id="st-detail-panel"></div>
+    <div class="st-grid" id="st-grid"></div>
+  </div>
+</div>
+
 <!-- DIARIO MODAL -->
 <div class="d-modal-overlay" id="d-modal-overlay" onclick="dCloseModal(event)">
   <div class="d-modal">
@@ -497,13 +730,15 @@ body{background:var(--cream);color:var(--ink);font-family:"Inter",sans-serif;min
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('menuOverlay').classList.toggle('open')}
 function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open')}
 function showPage(p){
-  ['words','verbs','diario','quiz'].forEach(x=>{
+  ['words','verbs','diario','quiz','grammar','stories'].forEach(x=>{
     document.getElementById('page-'+x).classList.toggle('active',x===p);
     document.getElementById('nav-'+x).classList.toggle('active',x===p);
   });
-  const labels={'words':'Kelimeler · 669','verbs':'Fiiller · 99','diario':'Diario','quiz':'Adaptif Quiz'};
+  const labels={'words':'Kelimeler · 669','verbs':'Fiiller · 99','diario':'Diario','quiz':'Adaptif Quiz','grammar':'Grammer Engine','stories':'Story Reader'};
   document.getElementById('topbar-badge').textContent=labels[p]||'';
   if(p==='diario')dInit();
+  if(p==='grammar')gInit();
+  if(p==='stories')stInit();
   if(p==='quiz')quizInit();
   closeSidebar();
 }
@@ -671,76 +906,681 @@ function dCloseModal(e){if(e.target===document.getElementById("d-modal-overlay")
 function dCloseModalDirect(){document.getElementById("d-modal-overlay").classList.remove("open")}
 function dRenderSettings(){const e=dGetEntries();document.getElementById("d-stat-total").textContent=e.length;document.getElementById("d-stat-streak").textContent=dCalcStreak();document.getElementById("d-stat-words").textContent=e.reduce((s,x)=>s+(x.wordCount||0),0);}
 function dClearAll(){if(!confirm("Tüm yazılar ve streak silinecek. Emin misin?"))return;localStorage.removeItem("diario_v2");localStorage.removeItem("diario_temp");dUpdateStreak();dRenderSettings();showToast("Silindi");}
-</script>
-<!-- ══ PAGE: QUIZ ══════════════════════════════════════════ -->
-<div class="page" id="page-quiz">
-  <div class="page-header">
-    <h2>Adaptif <span>Quiz</span></h2>
-    <p id="quiz-subtitle">Bilgi grafiğine göre kişisel sorular</p>
-  </div>
 
-  <!-- Stats bar -->
-  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px" id="quiz-stats-bar">
-    <div class="badge">XP: <span id="qs-xp" style="color:var(--terra)">0</span></div>
-    <div class="badge">Streak: <span id="qs-streak" style="color:var(--green)">0</span> 🔥</div>
-    <div class="badge">Ders: <span id="qs-lesson" style="color:var(--muted)">—</span></div>
-  </div>
+// ══ GRAMMAR ENGINE ════════════════════════════════════════
+const GRAMMAR_DATA = [
+  // ─── A0 ───
+  {id:"g01",level:"A0",icon:"👤",title:"Pronomi Personali",subtitle:"Özne Zamirleri",prereq:"Yok",
+   goal:"Temel özne zamirlerini öğrenmek; cümle kurulumunun temelini anlamak.",
+   rule:"İtalyancada özne zamirleri vardır ancak fiil çekimi özneyi gösterdiği için çoğu zaman düşebilir.",
+   tr_compare:"Türkçede özne gizlidir: 'Gidiyorum'. İtalyancada: 'Io vado' (io genelde düşer).",
+   en_compare:"İngilizcede I, you, he/she, we, they gibi net kullanılır. İtalyancada söylenmeyebilir.",
+   formula:"[Özne] + Fiil",
+   conj:[["Io","—","Ben"],["Tu","—","Sen"],["Lui/Lei","—","O"],["Noi","—","Biz"],["Voi","—","Siz"],["Loro","—","Onlar"]],
+   usage:"Resmi başlangıç cümleleri; netlik gerektiğinde",
+   avoid:"Günlük konuşmada gereksiz 'io' kullanmak",
+   errors:[{wrong:"Io io sono studente",right:"Sono studente",note:"Tekrar edilmez"}],
+   examples:[{it:"Io sono studente.",tr:"Ben öğrenciyim."},{it:"Tu sei medico.",tr:"Sen doktorsun."},{it:"Lui è italiano.",tr:"O İtalyan."},{it:"Noi siamo amici.",tr:"Biz arkadaşız."},{it:"Voi siete pronti.",tr:"Siz hazırsınız."},{it:"Loro sono studenti.",tr:"Onlar öğrenci."}],
+   summary:"6 temel zamir. Fiil çekimi özneyi gösterir. Vurgu dışında çoğu zaman düşer.",
+   flashcards:[{it:"Io",tr:"Ben"},{it:"Tu",tr:"Sen"},{it:"Lui/Lei",tr:"O"}],
+   stories:"Story 1 — Mi presento"},
 
-  <!-- Knowledge Graph View -->
-  <div id="quiz-graph-panel" style="background:var(--card-bg);border:1.5px solid #ede4d9;border-radius:14px;padding:14px 16px;margin-bottom:14px">
-    <div style="font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">📊 Bilgi Grafiği</div>
-    <div id="quiz-graph-nodes" style="display:flex;flex-wrap:wrap;gap:7px"></div>
-  </div>
+  {id:"g02",level:"A0",icon:"🔵",title:"Essere (To Be)",subtitle:"Olmak Fiili",prereq:"Pronomi Personali",
+   goal:"Kimlik, milliyet ve meslek ifade etmek.",
+   rule:"Essere kalıcı durumlar ve kimlikler için kullanılır.",
+   tr_compare:"'Ben doktorum' = 'Io sono medico'",
+   en_compare:"I am Turkish → Io sono turco.",
+   formula:"Özne + essere + isim/sıfat",
+   conj:[["Io","sono","Ben —im"],["Tu","sei","Sen —sin"],["Lui/Lei","è","O —dır"],["Noi","siamo","Biz —iz"],["Voi","siete","Siz —siniz"],["Loro","sono","Onlar —dır"]],
+   usage:"Kimlik, milliyet, meslek, sıfat",
+   avoid:"Geçici durumlar (ho fame → essere ile değil)",
+   errors:[{wrong:"Io è medico",right:"Io sono medico",note:"1. tekil için 'sono'"},{wrong:"Sono fame",right:"Ho fame",note:"Açlık avere ile"}],
+   examples:[{it:"Io sono turco.",tr:"Ben Türküm."},{it:"Lei è medico.",tr:"O doktor."},{it:"Noi siamo studenti.",tr:"Biz öğrenciyiz."},{it:"Sei italiano?",tr:"İtalyan mısın?"},{it:"Sono felice.",tr:"Mutluyum."},{it:"È una bella città.",tr:"Güzel bir şehir."}],
+   summary:"Kimlik = essere. Kalıcı durumlar. 'sono/sei/è/siamo/siete/sono'",
+   flashcards:[{it:"sono",tr:"am/is/are (ben)"},{it:"sei",tr:"are (sen)"},{it:"è",tr:"is (o)"}],
+   stories:"Story 1 — Mi presento"},
 
-  <!-- Question area -->
-  <div id="quiz-question-area" style="display:none">
-    <div style="font-size:.68rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px" id="q-type-label">ÇEVIRI</div>
-    <div style="background:var(--card-bg);border:1.5px solid #ede4d9;border-radius:16px;padding:20px 18px;margin-bottom:14px;text-align:center">
-      <div style="font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,4vw,1.8rem);color:var(--ink);margin-bottom:6px;font-style:italic" id="q-text">—</div>
-      <div style="font-size:.75rem;color:var(--muted)" id="q-hint"></div>
-    </div>
+  {id:"g03",level:"A0",icon:"🟠",title:"Avere (To Have)",subtitle:"Sahip Olmak / Bedensel Durumlar",prereq:"Pronomi Personali",
+   goal:"Sahiplik ve bedensel durumları ifade etmek.",
+   rule:"Avere 'sahip olmak' ve 'bedensel durumlar' için kullanılır.",
+   tr_compare:"'Açım' = 'Ho fame' (Açlığım var → sahiplik)",
+   en_compare:"I have a car → Ho una macchina.",
+   formula:"Özne + avere + isim",
+   conj:[["Io","ho","var(bende)"],["Tu","hai","var(sende)"],["Lui/Lei","ha","var(onda)"],["Noi","abbiamo","var(bizde)"],["Voi","avete","var(sizde)"],["Loro","hanno","var(onlarda)"]],
+   usage:"Yaş: Ho 25 anni · Açlık: Ho fame · Sıcaklık: Ho caldo",
+   avoid:"Kimlik için avere kullanmak",
+   errors:[{wrong:"Sono fame",right:"Ho fame",note:"Fiziksel durum = avere"},{wrong:"Io avere fame",right:"Ho fame",note:"Infinitive değil çekimli"}],
+   examples:[{it:"Ho fame.",tr:"Açım."},{it:"Hai sonno.",tr:"Uykun var."},{it:"Abbiamo freddo.",tr:"Üşüyoruz."},{it:"Ho 25 anni.",tr:"25 yaşındayım."},{it:"Ha una macchina.",tr:"Arabası var."},{it:"Ho paura.",tr:"Korkuyorum."}],
+   summary:"Fiziksel durum = avere. Yaş, açlık, sıcaklık hep avere ile.",
+   flashcards:[{it:"ho",tr:"bende var"},{it:"hai",tr:"sende var"},{it:"ha",tr:"onda var"}],
+   stories:"Story 1 — Mi presento"},
 
-    <!-- Fill blank input -->
-    <div id="q-fill-area" style="display:none;margin-bottom:12px">
-      <input id="q-fill-input" type="text" placeholder="Cevabını yaz…"
-        style="width:100%;padding:11px 16px;border:1.5px solid #d4c9bc;border-radius:11px;font-size:.95rem;font-family:'Lora',serif;background:var(--card-bg);color:var(--ink);outline:none;transition:border-color .15s"
-        oninput="this.style.borderColor='#d4c9bc'" onkeydown="if(event.key==='Enter')quizCheckFill()">
-      <button onclick="quizCheckFill()" style="margin-top:8px;width:100%;padding:11px;border-radius:11px;border:none;background:var(--terra);color:#fff;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer">Kontrol Et</button>
-    </div>
+  {id:"g04",level:"A0",icon:"💚",title:"Stare (State/Condition)",subtitle:"Geçici Durum",prereq:"Essere + Avere",
+   goal:"Geçici durumlar ve sağlık hali ifade etmek.",
+   rule:"Stare geçici durumları ifade eder.",
+   tr_compare:"'İyiyim (şu an)' = 'Sto bene'",
+   en_compare:"How are you? = Come stai? (stare ile)",
+   formula:"Özne + stare + zarf/sıfat",
+   conj:[["Io","sto",""],["Tu","stai",""],["Lui/Lei","sta",""],["Noi","stiamo",""],["Voi","state",""],["Loro","stanno",""]],
+   usage:"Sto bene · Sto male · Sto a casa · Sto studiando",
+   avoid:"Kimlik için stare kullanmak",
+   errors:[{wrong:"Sono bene",right:"Sto bene",note:"Geçici durum = stare"}],
+   examples:[{it:"Come stai?",tr:"Nasılsın?"},{it:"Sto bene, grazie!",tr:"İyiyim, teşekkürler!"},{it:"Sto a casa.",tr:"Evdeyim."},{it:"Sta male.",tr:"Kötü hissediyor."},{it:"Stiamo bene.",tr:"İyiyiz."},{it:"Stanno a Roma.",tr:"Roma'dalar."}],
+   summary:"Stare = anlık durum. Essere = kimlik. Stare + bene/male = sağlık.",
+   flashcards:[{it:"sto bene",tr:"iyiyim"},{it:"sto male",tr:"kötüyüm"}],
+   stories:"Story 1 — Mi presento"},
 
-    <!-- Multiple choice options -->
-    <div id="q-mc-area" style="display:none;margin-bottom:12px">
-      <div id="q-mc-options" style="display:flex;flex-direction:column;gap:8px"></div>
-    </div>
+  {id:"g05",level:"A0",icon:"🔤",title:"Presente Indicativo",subtitle:"-ARE / -ERE / -IRE Fiilleri",prereq:"Pronomi Personali",
+   goal:"Temel fiil çekimini öğrenmek.",
+   rule:"İtalyancada 3 fiil grubu vardır: -are, -ere, -ire. Kök + kişi eki.",
+   tr_compare:"Türkçede: 'konuşuyorum'. İtalyancada: 'parlo'",
+   en_compare:"I speak → parlo. You speak → parli.",
+   formula:"Fiil köku + kişi eki",
+   conj:[["ARE: parlare","→","parlo/parli/parla/parliamo/parlate/parlano"],["ERE: prendere","→","prendo/prendi/prende/prendiamo/prendete/prendono"],["IRE: dormire","→","dormo/dormi/dorme/dormiamo/dormite/dormono"]],
+   usage:"Günlük aktiviteler, alışkanlıklar, genel gerçekler",
+   avoid:"Yanlış kök düşürme",
+   errors:[{wrong:"io parlare",right:"io parlo",note:"Infinitive değil çekimli form"}],
+   examples:[{it:"Parlo italiano.",tr:"İtalyanca konuşuyorum."},{it:"Prendo il caffè.",tr:"Kahve alıyorum."},{it:"Dormo bene.",tr:"İyi uyuyorum."},{it:"Mangi la pizza?",tr:"Pizza yiyor musun?"},{it:"Lavoriamo insieme.",tr:"Birlikte çalışıyoruz."},{it:"Scrivono bene.",tr:"İyi yazıyorlar."}],
+   summary:"3 konjugasyon: -are, -ere, -ire. Kök + ek = çekimli fiil.",
+   flashcards:[{it:"parlo",tr:"konuşuyorum"},{it:"mangio",tr:"yiyorum"},{it:"prendo",tr:"alıyorum"}],
+   stories:"Story 3 — Una giornata normale"},
 
-    <!-- Feedback -->
-    <div id="q-feedback" style="display:none;border-radius:11px;padding:13px 16px;margin-bottom:12px;font-size:.88rem;line-height:1.5"></div>
+  {id:"g06",level:"A0",icon:"❓",title:"Yapı Sorusu (Soru Cümlesi)",subtitle:"Temel Soru Yapısı",prereq:"Presente",
+   goal:"Temel soru cümlesi kurmak.",
+   rule:"İtalyancada soru işareti ve tonlama yeterlidir. Ters çevirme opsiyoneldir.",
+   tr_compare:"'Nereye gidiyorsun?' = 'Dove vai?'",
+   en_compare:"Where do you live? = Dove abiti?",
+   formula:"Come/Dove/Chi/Cosa + fiil + ?",
+   conj:[["Come","Nasıl","Come stai?"],["Dove","Nerede","Dove abiti?"],["Chi","Kim","Chi sei?"],["Cosa","Ne","Cosa fai?"]],
+   usage:"Günlük sohbet, tanışma, yön sorma",
+   avoid:"Soru kelimesini unutmak",
+   errors:[{wrong:"Abiti dove?",right:"Dove abiti?",note:"Soru kelimesi başa gelir"}],
+   examples:[{it:"Come stai?",tr:"Nasılsın?"},{it:"Dove abiti?",tr:"Nerede yaşıyorsun?"},{it:"Chi è?",tr:"Kim?"},{it:"Cosa fai?",tr:"Ne yapıyorsun?"},{it:"Quando arrivi?",tr:"Ne zaman geliyorsun?"},{it:"Perché studi italiano?",tr:"Neden İtalyanca çalışıyorsun?"}],
+   summary:"Soru kelimesi + fiil + ? Tonlama tek başına da soru yapar.",
+   flashcards:[{it:"Come?",tr:"Nasıl?"},{it:"Dove?",tr:"Nerede?"},{it:"Cosa?",tr:"Ne?"}],
+   stories:"Story 1–4"},
 
-    <!-- Next button -->
-    <button id="q-next-btn" onclick="quizNext()" style="display:none;width:100%;padding:12px;border-radius:11px;border:none;background:var(--sun);color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer">Sonraki Soru →</button>
-  </div>
+  // ─── A1 ───
+  {id:"g07",level:"A1",icon:"🔢",title:"Numeri (Sayılar)",subtitle:"Sayılar ve Kullanımı",prereq:"A0",
+   goal:"Yaş, fiyat, saat ve adres söylemek.",
+   rule:"İtalyanca sayılar lineerdir. 21, 31 gibi sayılarda ses düşmesi: venti+uno=ventuno.",
+   tr_compare:"'20 yaşındayım' = 'Ho venti anni'",
+   en_compare:"I am twenty years old → Ho vent'anni.",
+   formula:"Ho + sayı + anni (yaş) / Costa + sayı + euro (fiyat)",
+   conj:[["1-10","uno, due, tre, quattro, cinque, sei, sette, otto, nove, dieci",""],["11-20","undici, dodici, tredici…venti",""],["21+","ventuno, ventidue…trenta, quaranta…cento",""]],
+   usage:"Ho 25 anni · Costa 10 euro · Sono le 3",
+   avoid:"Avere olmadan yaş söylemek",
+   errors:[{wrong:"Io venti anni",right:"Ho venti anni",note:"Avere gerekli"}],
+   examples:[{it:"Ho venticinque anni.",tr:"25 yaşındayım."},{it:"Costa dieci euro.",tr:"10 Euro tutuyor."},{it:"Sono le tre.",tr:"Saat 3."},{it:"Abito al numero cinque.",tr:"5 numarada oturuyorum."},{it:"Ho due sorelle.",tr:"İki kız kardeşim var."},{it:"Arriva alle undici.",tr:"Saat 11'de geliyor."}],
+   summary:"Sayılar = gerçek hayatın ölçüm dili. Yaş için avere, saat için essere.",
+   flashcards:[{it:"Ho 20 anni",tr:"20 yaşındayım"},{it:"Costa 5 euro",tr:"5 Euro"}],
+   stories:"Story 1 — Mi presento"},
 
-  <!-- Start / lesson select screen -->
-  <div id="quiz-start-screen">
-    <div style="display:flex;flex-direction:column;gap:8px" id="quiz-lesson-list"></div>
-    <button onclick="quizStartAdaptive()" style="margin-top:10px;width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--sun),var(--terra));color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.3px">🧠 Adaptif Mod — En Zayıf Dersten Başla</button>
-  </div>
+  {id:"g08",level:"A1",icon:"👥",title:"Plurale (Çoğul)",subtitle:"İsim Çoğul Yapısı",prereq:"A0",
+   goal:"İsimleri çoğul yapmak.",
+   rule:"Son harf değişir: -o → -i (eril), -a → -e (dişil).",
+   tr_compare:"Türkçede '-lar/-ler'. İtalyancada son harf değişir.",
+   en_compare:"-s takısı yerine son harf değişimi.",
+   formula:"-o → -i · -a → -e",
+   conj:[["libro (kitap)","→ libri","eril"],["casa (ev)","→ case","dişil"],["studente","→ studenti","eril -e"],["classe","→ classi","dişil -e"]],
+   usage:"Birden fazla nesneyi ifade etmek",
+   avoid:"Dişil ismi -i ile çoğullamak",
+   errors:[{wrong:"i casa",right:"le case",note:"Casa dişil → le case"}],
+   examples:[{it:"Due libri.",tr:"İki kitap."},{it:"Tre case.",tr:"Üç ev."},{it:"Molti studenti.",tr:"Çok öğrenci."},{it:"Le amiche.",tr:"Arkadaşlar (kız)."},{it:"I ragazzi.",tr:"Çocuklar."},{it:"Le lezioni.",tr:"Dersler."}],
+   summary:"Son harf değişir. -o/-a/-e sonu kelimelere dikkat.",
+   flashcards:[{it:"libro → libri",tr:"kitap → kitaplar"},{it:"casa → case",tr:"ev → evler"}],
+   stories:"Story 2 — La mia famiglia"},
 
-  <!-- Session done screen -->
-  <div id="quiz-done-screen" style="display:none;text-align:center;padding:30px 16px">
-    <div style="font-size:2.4rem;margin-bottom:10px">🎉</div>
-    <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;margin-bottom:6px">Tur Tamamlandı!</div>
-    <div id="q-done-stats" style="font-size:.85rem;color:var(--muted);margin-bottom:18px"></div>
-    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-      <button onclick="quizStartAdaptive()" style="padding:10px 20px;border-radius:10px;border:none;background:var(--sun);color:#fff;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer">🧠 Adaptif Devam</button>
-      <button onclick="quizShowStart()" style="padding:10px 20px;border-radius:10px;border:1.5px solid #d4c9bc;background:transparent;color:var(--ink);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer">Ders Seç</button>
-    </div>
-  </div>
-</div>
+  {id:"g09",level:"A1",icon:"🎨",title:"Aggettivi (Sıfatlar)",subtitle:"Sıfat-İsim Uyumu",prereq:"Plurale",
+   goal:"Sıfatları doğru cinsiyette kullanmak.",
+   rule:"Sıfat isme uyar: cinsiyet ve çoğul.",
+   tr_compare:"Türkçede sıfat değişmez. İtalyancada değişir.",
+   en_compare:"'a beautiful house' → 'una casa bella'",
+   formula:"İsim (cinsiyet+çoğul) = Sıfat",
+   conj:[["un ragazzo alto","→ dei ragazzi alti","eril çoğul"],["una ragazza alta","→ delle ragazze alte","dişil çoğul"],["un libro interessante","→ libri interessanti","tek form"]],
+   usage:"Tanımlama, nitelendirme",
+   avoid:"Sıfatı uyumsuz kullanmak",
+   errors:[{wrong:"casa bello",right:"casa bella",note:"Casa dişil → bella"}],
+   examples:[{it:"Una casa bella.",tr:"Güzel bir ev."},{it:"Un ragazzo alto.",tr:"Uzun bir oğlan."},{it:"Libri interessanti.",tr:"İlginç kitaplar."},{it:"Lezioni difficili.",tr:"Zor dersler."},{it:"Una pizza buona.",tr:"İyi bir pizza."},{it:"Studenti bravi.",tr:"Başarılı öğrenciler."}],
+   summary:"Sıfat = aynalama sistemi. İsimle aynı cinsiyet + çoğul form.",
+   flashcards:[{it:"bello/bella",tr:"güzel (e/d)"},{it:"grande",tr:"büyük (hep aynı)"}],
+   stories:"Story 6 — La mia casa"},
 
-<!-- ═══ ADAPTIVE QUIZ ENGINE — PHASE 4 + 5 ═══════════════ -->
-<script>
-// ── LESSON DATA ────────────────────────────────────────────
+  {id:"g10",level:"A1",icon:"⏰",title:"Giorni, Mesi, Ore",subtitle:"Gün, Ay ve Saat",prereq:"Numeri",
+   goal:"Zaman ifadelerini kullanmak.",
+   rule:"Günler küçük harfle yazılır. Saat: 'Sono le + sayı'.",
+   tr_compare:"'Pazartesi' = 'lunedì'. 'Saat 3' = 'Sono le tre'.",
+   en_compare:"Monday = lunedì. It is 3 o'clock = Sono le tre.",
+   formula:"Sono le + sayı (saat) / A + ay",
+   conj:[["Giorni","lunedì/martedì/mercoledì/giovedì/venerdì/sabato/domenica",""],["Mesi","gennaio, febbraio, marzo… dicembre",""],["Ore","Sono le 3 · È l'una · Sono le 12",""]],
+   usage:"Zaman belirtmek, randevu, tarih",
+   avoid:"Büyük harf kullanmak (lunedì değil Lunedì)",
+   errors:[{wrong:"Io ho sette anni di sabato",right:"Il sabato ho sette anni",note:"Gün + il/la"}],
+   examples:[{it:"Oggi è lunedì.",tr:"Bugün pazartesi."},{it:"A gennaio fa freddo.",tr:"Ocakta soğuk olur."},{it:"Sono le tre e mezza.",tr:"Saat üç buçuk."},{it:"Arrivo venerdì.",tr:"Cuma geliyorum."},{it:"È l'una.",tr:"Saat bir."},{it:"Il sabato esco.",tr:"Cumartesi çıkıyorum."}],
+   summary:"Gün + mesi küçük harf. Saat için essere: Sono le / È l'una.",
+   flashcards:[{it:"Sono le 3",tr:"Saat 3"},{it:"lunedì",tr:"pazartesi"}],
+   stories:"Story 3 — Una giornata normale"},
+
+  {id:"g11",level:"A1",icon:"💬",title:"Vorrei",subtitle:"Kibar İstek",prereq:"Presente",
+   goal:"Kibar biçimde istek ifade etmek.",
+   rule:"Vorrei = volere'nin condizionale hali. 'İstiyorum ama kibar şekilde'.",
+   tr_compare:"'Bir kahve istiyorum' = 'Vorrei un caffè' (kibar)",
+   en_compare:"I would like a coffee = Vorrei un caffè.",
+   formula:"Vorrei + infinitive / isim",
+   conj:[["Vorrei","isterdim / isterim (kibar)",""],["Vorresti","isterdin",""],["Vorrebbe","isterdi",""]],
+   usage:"Restoran, mağaza, kibar ricalar",
+   avoid:"'Voglio' çok doğrudan olabilir resmi ortamda",
+   errors:[{wrong:"Voglio un caffè (kasiyere)",right:"Vorrei un caffè",note:"Vorrei daha kibar"}],
+   examples:[{it:"Vorrei un caffè, grazie.",tr:"Bir kahve istiyorum, teşekkürler."},{it:"Vorrei prenotare un tavolo.",tr:"Masa rezervasyonu yapmak istiyorum."},{it:"Vorrei diventare psicologo.",tr:"Psikolog olmak istiyorum."},{it:"Vorrei parlare con il direttore.",tr:"Müdürle konuşmak istiyorum."},{it:"Vorrei un bicchiere d'acqua.",tr:"Bir bardak su istiyorum."},{it:"Vorresti venire con me?",tr:"Benimle gelmek ister misin?"}],
+   summary:"Vorrei = kibar istek. Restoran ve mağazalarda zorunlu.",
+   flashcards:[{it:"Vorrei…",tr:"İstiyorum (kibar)"},{it:"Vorrei un caffè",tr:"Bir kahve istiyorum"}],
+   stories:"Story 5 — Al ristorante"},
+
+  {id:"g12",level:"A1",icon:"⚙️",title:"Fare",subtitle:"Çok Amaçlı Fiil",prereq:"Presente",
+   goal:"Fare fiilini günlük kullanımda yerinde kullanmak.",
+   rule:"Fare = yapmak. Ama çok geniş kullanım alanı var.",
+   tr_compare:"'Spor yapıyorum' = 'Faccio sport'",
+   en_compare:"I do sport / I make coffee = faccio sport / faccio il caffè.",
+   formula:"Fare + nesne",
+   conj:[["Io","faccio",""],["Tu","fai",""],["Lui/Lei","fa",""],["Noi","facciamo",""],["Voi","fate",""],["Loro","fanno",""]],
+   usage:"faccio sport · faccio colazione · faccio una domanda · fa caldo",
+   avoid:"",
+   errors:[{wrong:"Io faccio uno passeggiate",right:"Faccio una passeggiata",note:"Una passeggiata (dişil)"}],
+   examples:[{it:"Faccio colazione.",tr:"Kahvaltı yapıyorum."},{it:"Fa sport ogni giorno.",tr:"Her gün spor yapıyor."},{it:"Facciamo una passeggiata.",tr:"Yürüyüş yapıyoruz."},{it:"Fa caldo oggi.",tr:"Bugün sıcak."},{it:"Fai una domanda.",tr:"Bir soru sor."},{it:"Fanno colazione insieme.",tr:"Birlikte kahvaltı yapıyorlar."}],
+   summary:"Fare = çok amaçlı fiil. Aktiviteler, hava durumu, rutinler.",
+   flashcards:[{it:"faccio",tr:"yapıyorum"},{it:"fa caldo",tr:"hava sıcak"}],
+   stories:"Story 3 — Una giornata normale"},
+
+  {id:"g13",level:"A1",icon:"🔙",title:"Passato Prossimo",subtitle:"Geçmiş Zaman (Tamamlanmış)",prereq:"Essere + Avere + Presente",
+   goal:"Geçmişte tamamlanmış olayları anlatmak.",
+   rule:"essere/avere + participio passato. Essere ile çekimde özne ile uyum olur.",
+   tr_compare:"'Yedim' = 'Ho mangiato'. 'Gittim' = 'Sono andato'.",
+   en_compare:"Present perfect gibi çalışır: I have eaten = ho mangiato.",
+   formula:"avere/essere + participio passato",
+   conj:[["avere + participio","ho mangiato / hai mangiato / ha mangiato…","transitif"],["essere + participio","sono andato/a / sei andato/a…","hareket/değişim"]],
+   usage:"Geçmişte biten olaylar, hikayeler",
+   avoid:"Essere/avere karıştırmak",
+   errors:[{wrong:"Ho andato",right:"Sono andato",note:"Andare essere alır"},{wrong:"Sono mangiato",right:"Ho mangiato",note:"Mangiare avere alır"}],
+   examples:[{it:"Ho mangiato la pizza.",tr:"Pizza yedim."},{it:"Sono andato a Roma.",tr:"Roma'ya gittim."},{it:"Hai studiato ieri?",tr:"Dün çalıştın mı?"},{it:"Abbiamo finito.",tr:"Bitirdik."},{it:"È arrivata tardi.",tr:"Geç geldi."},{it:"Ho letto un libro.",tr:"Bir kitap okudum."}],
+   summary:"Bitmiş geçmiş = passato prossimo. avere (transitif) / essere (hareket).",
+   flashcards:[{it:"ho mangiato",tr:"yedim"},{it:"sono andato",tr:"gittim"}],
+   stories:"Story 11 — Il mio primo viaggio"},
+
+  {id:"g14",level:"A1",icon:"🚀",title:"Verbi Modali",subtitle:"Yardımcı Güç Fiilleri",prereq:"Presente",
+   goal:"Potere, dovere, volere kullanmak.",
+   rule:"Modal + infinitive. Bu fiiller başka fiilleri kontrol eder.",
+   tr_compare:"'Konuşabiliyorum' = 'Posso parlare'",
+   en_compare:"can → potere · must → dovere · want → volere.",
+   formula:"modal fiil + infinitive",
+   conj:[["potere","posso/puoi/può/possiamo/potete/possono","yapabilmek"],["dovere","devo/devi/deve/dobbiamo/dovete/devono","zorunda olmak"],["volere","voglio/vuoi/vuole/vogliamo/volete/vogliono","istemek"]],
+   usage:"İzin, zorunluluk, istek",
+   avoid:"Modal + çekimli fiil",
+   errors:[{wrong:"Posso vai",right:"Posso andare",note:"Modal + infinitive"}],
+   examples:[{it:"Posso parlare italiano.",tr:"İtalyanca konuşabiliyorum."},{it:"Devo studiare.",tr:"Çalışmam gerek."},{it:"Voglio imparare.",tr:"Öğrenmek istiyorum."},{it:"Non può venire.",tr:"Gelemez."},{it:"Dobbiamo partire.",tr:"Ayrılmamız gerek."},{it:"Volete mangiare?",tr:"Yemek ister misiniz?"}],
+   summary:"Modal + infinitive. Üç temel modal: potere/dovere/volere.",
+   flashcards:[{it:"posso",tr:"yapabilirim"},{it:"devo",tr:"zorundayım"},{it:"voglio",tr:"istiyorum"}],
+   stories:"Story 1 — Mi presento"},
+
+  {id:"g15",level:"A1",icon:"🏠",title:"Possessivi (İyelik)",subtitle:"Sahiplik İfadesi",prereq:"Articoli",
+   goal:"Benim/senin/onun gibi iyelik ifadelerini kullanmak.",
+   rule:"Article + iyelik sıfatı. İtalyancada article atılmaz (aile üyeleri hariç).",
+   tr_compare:"'Benim evim' = 'la mia casa'",
+   en_compare:"my car → la mia macchina.",
+   formula:"article + possessivo + isim",
+   conj:[["mio/mia/miei/mie","benim","la mia casa / il mio libro"],["tuo/tua/tuoi/tue","senin","il tuo amico"],["suo/sua/suoi/sue","onun","la sua famiglia"],["nostro/nostra","bizim","il nostro professore"]],
+   usage:"Sahiplik, aile üyeleri (artikel atılır: mio padre)",
+   avoid:"Artikel atlamak",
+   errors:[{wrong:"Mia casa è grande",right:"La mia casa è grande",note:"Artikel gerekli (aile hariç)"}],
+   examples:[{it:"La mia casa è grande.",tr:"Evim büyük."},{it:"Il mio amico si chiama Luca.",tr:"Arkadaşım Luca."},{it:"Mia madre è insegnante.",tr:"Annem öğretmen. (artikel yok)"},{it:"Suo padre è medico.",tr:"Babası doktor."},{it:"La nostra università.",tr:"Üniversitemiz."},{it:"I miei libri.",tr:"Kitaplarım."}],
+   summary:"Article + possessivo + isim. Aile üyelerinde artikel yok.",
+   flashcards:[{it:"la mia",tr:"benim (dişil)"},{it:"il mio",tr:"benim (eril)"}],
+   stories:"Story 2 — La mia famiglia"},
+
+  // ─── A2 ───
+  {id:"g16",level:"A2",icon:"🔄",title:"Imperfetto",subtitle:"Geçmişte Süreç/Alışkanlık",prereq:"Passato Prossimo",
+   goal:"Geçmişteki alışkanlıkları ve devam eden durumları anlatmak.",
+   rule:"Imperfetto = geçmişte süreç/alışkanlık. Passato Prossimo = biten olay.",
+   tr_compare:"'Çocukken oynardım' = 'Quando ero bambino giocavo'",
+   en_compare:"I used to play / I was playing → imperfetto.",
+   formula:"Kök + -avo/-evo/-ivo (io) vb.",
+   conj:[["parlare","parlavo/parlavi/parlava/parlavamo/parlavate/parlavano",""],["essere","ero/eri/era/eravamo/eravate/erano",""]],
+   usage:"Alışkanlıklar, geçmiş koşullar, hikaye arka planı",
+   avoid:"Passato Prossimo yerine kullanmak (biten olaylar)",
+   errors:[{wrong:"Ieri mangiavo la pizza",right:"Ieri ho mangiato la pizza",note:"Ieri (dün) + biten olay = passato prossimo"}],
+   examples:[{it:"Quando ero bambino giocavo.",tr:"Çocukken oynardım."},{it:"Ogni giorno andavo a scuola.",tr:"Her gün okula giderdim."},{it:"C'era molta gente.",tr:"Çok insan vardı."},{it:"Non avevamo smartphone.",tr:"Akıllı telefonumuz yoktu."},{it:"Ero molto felice.",tr:"Çok mutluydum."},{it:"Pioveva spesso.",tr:"Sık sık yağmur yağardı."}],
+   summary:"Imperfetto = geçmiş 'durum'. Passato Prossimo = geçmiş 'olay'.",
+   flashcards:[{it:"andavo",tr:"giderdim"},{it:"ero",tr:"idim"}],
+   stories:"Story 12 — Quando ero bambino"},
+
+  {id:"g17",level:"A2",icon:"📢",title:"Imperativo",subtitle:"Emir Cümleleri",prereq:"Presente",
+   goal:"Emir ve rica cümleleri kurmak.",
+   rule:"Tu için düz kök (are→a), lei için -a→-i. Per favore ile kibarlık.",
+   tr_compare:"'Konuş!' = 'Parla!'",
+   en_compare:"Speak! → Parla! Come! → Vieni!",
+   formula:"(tu) Kök + ekleri / (Lei) kibar form",
+   conj:[["parlare (tu)","Parla!","konuş"],["venire (tu)","Vieni!","gel"],["andare (tu)","Vai!","git"],["mangiare (tu)","Mangia!","ye"]],
+   usage:"Talimat, istek, yardım",
+   avoid:"Lei formunu tu gibi kullanmak",
+   errors:[{wrong:"Parli! (arkadaşa)",right:"Parla!",note:"Tu formu -a ile biter (are)"}],
+   examples:[{it:"Parla più lentamente!",tr:"Daha yavaş konuş!"},{it:"Vieni con me!",tr:"Benimle gel!"},{it:"Mangia, per favore.",tr:"Lütfen ye."},{it:"Aspetta un momento!",tr:"Bir dakika bekle!"},{it:"Non dimenticare!",tr:"Unutma!"},{it:"Ascolta bene.",tr:"İyi dinle."}],
+   summary:"Emir = direkt aksiyon. Per favore ile kibar. Negativo: non + inf.",
+   flashcards:[{it:"Parla!",tr:"Konuş!"},{it:"Vieni!",tr:"Gel!"}],
+   stories:"Story 13 — Una giornata difficile"},
+
+  {id:"g18",level:"A2",icon:"👈",title:"Pronomi Diretti",subtitle:"Doğrudan Nesne Zamirleri",prereq:"Presente",
+   goal:"Nesneyi tekrar etmemek için zamir kullanmak.",
+   rule:"lo/la/li/le — nesneyi yerine koyar. Fiilden önce gelir.",
+   tr_compare:"'Onu görüyorum' = 'Lo vedo'",
+   en_compare:"I see Maria → I see her = La vedo.",
+   formula:"Özne + zamir + fiil",
+   conj:[["mi","beni","mi chiama"],["ti","seni","ti vedo"],["lo/la","onu","lo/la vedo"],["ci","bizi","ci chiama"],["vi","sizi","vi aspetto"],["li/le","onları","li/le vedo"]],
+   usage:"Tekrar etmeme, daha akıcı İtalyanca",
+   avoid:"Zarimi yanlış sıraya koymak",
+   errors:[{wrong:"Vedo lo",right:"Lo vedo",note:"Zamir fiilden önce"}],
+   examples:[{it:"Vedo Maria → La vedo.",tr:"Maria'yı görüyorum → Onu görüyorum."},{it:"Compro il libro → Lo compro.",tr:"Kitabı alıyorum → Onu alıyorum."},{it:"Mi chiama ogni giorno.",tr:"Her gün beni arıyor."},{it:"Li conosco bene.",tr:"Onları iyi tanıyorum."},{it:"La vedo domani.",tr:"Onu yarın göreceğim."},{it:"Ti aspetto qui.",tr:"Seni burada bekliyorum."}],
+   summary:"Doğrudan zamir fiilden önce. lo(onu-eril) / la(onu-dişil).",
+   flashcards:[{it:"lo",tr:"onu (eril)"},{it:"la",tr:"onu (dişil)"},{it:"li/le",tr:"onları"}],
+   stories:"Story 11–20"},
+
+  {id:"g19",level:"A2",icon:"🎯",title:"Piacere",subtitle:"Beğenmek (Ters Yapı)",prereq:"Pronomi Diretti",
+   goal:"Piacere fiilini doğru yapıyla kullanmak.",
+   rule:"İng: I like pizza. İt: La pizza mi piace (pizza beni hoşlandırıyor → ters yapı).",
+   tr_compare:"'Pizzayı seviyorum' = 'Mi piace la pizza'",
+   en_compare:"I like → mi piace. We like → ci piace.",
+   formula:"(Pronome indiretto) + piace/piacciono + soggetto",
+   conj:[["mi piace","bana hoş geliyor","Mi piace il caffè"],["ti piace","sana hoş geliyor","Ti piace la pizza?"],["gli/le piace","ona hoş geliyor","Gli piace studiare"],["ci piace","bize hoş geliyor","Ci piace l'Italia"]],
+   usage:"Beğeni ifadesi, aktiviteler, yerler",
+   avoid:"Çoğul isim ile piace (piacciono olmalı)",
+   errors:[{wrong:"Mi piace i libri",right:"Mi piacciono i libri",note:"Çoğul → piacciono"}],
+   examples:[{it:"Mi piace il caffè.",tr:"Kahveyi seviyorum."},{it:"Mi piacciono i libri.",tr:"Kitapları seviyorum."},{it:"Ti piace l'italiano?",tr:"İtalyanca hoşuna gidiyor mu?"},{it:"Non mi piace il freddo.",tr:"Soğuğu sevmiyorum."},{it:"Gli piace studiare.",tr:"Çalışmayı seviyor."},{it:"Ci piace viaggiare.",tr:"Seyahat etmeyi seviyoruz."}],
+   summary:"Piacere ters yapı: nesne özne olur. piace (tekil) / piacciono (çoğul).",
+   flashcards:[{it:"mi piace",tr:"severim"},{it:"mi piacciono",tr:"severim (çoğul)"}],
+   stories:"Story 1 — Mi presento"},
+
+  {id:"g20",level:"A2",icon:"🔮",title:"Futuro Semplice",subtitle:"Gelecek Zaman",prereq:"Presente",
+   goal:"Plan ve geleceği ifade etmek.",
+   rule:"Kök + -erò/-erò/-erà vb. Düzensizler: essere→sarò, avere→avrò.",
+   tr_compare:"'İtalya'ya gideceğim' = 'Andrò in Italia'",
+   en_compare:"I will go → andrò.",
+   formula:"Kök + -rò/-rai/-rà/-remo/-rete/-ranno",
+   conj:[["parlare","parlerò/parlerai/parlerà/parleremo/parlerete/parleranno",""],["essere","sarò/sarai/sarà/saremo/sarete/saranno",""],["avere","avrò/avrai/avrà/avremo/avrete/avranno",""]],
+   usage:"Planlar, tahminler, kesin gelecek",
+   avoid:"Presente ile gelecek karıştırmak",
+   errors:[{wrong:"Domani io vado (resmi gelecek)",right:"Domani andrò",note:"Plan için futuro kullanılabilir"}],
+   examples:[{it:"Andrò in Italia.",tr:"İtalya'ya gideceğim."},{it:"Sarà una bella vacanza.",tr:"Güzel bir tatil olacak."},{it:"Parlerai italiano benissimo.",tr:"İtalyancayı çok iyi konuşacaksın."},{it:"Finiremo presto.",tr:"Kısa sürede bitireceğiz."},{it:"Avrò bisogno di aiuto.",tr:"Yardıma ihtiyacım olacak."},{it:"Cosa farai domani?",tr:"Yarın ne yapacaksın?"}],
+   summary:"Futuro = gelecek plan. Kök + -rò eki.",
+   flashcards:[{it:"andrò",tr:"gideceğim"},{it:"sarò",tr:"olacağım"}],
+   stories:"Story 19 — Il mio sogno"},
+
+  {id:"g21",level:"A2",icon:"🌊",title:"Condizionale",subtitle:"Kibar İstek / Hayali Durum",prereq:"Futuro",
+   goal:"Kibar istek ve hayali durum ifade etmek.",
+   rule:"Kök + -rei/-resti/-rebbe vb. Gerçek olmayan nazik cümle.",
+   tr_compare:"'Seyahat etmek isterdim' = 'Vorrei viaggiare'",
+   en_compare:"would + verb → condizionale.",
+   formula:"Kök + -rei/-resti/-rebbe/-remmo/-reste/-rebbero",
+   conj:[["volere","vorrei/vorresti/vorrebbe",""],["potere","potrei/potresti/potrebbe",""],["essere","sarei/saresti/sarebbe",""]],
+   usage:"Kibar istek, hipotez, koşullu cümle",
+   avoid:"",
+   errors:[],
+   examples:[{it:"Vorrei un caffè.",tr:"Bir kahve istiyorum (kibar)."},{it:"Potresti aiutarmi?",tr:"Bana yardım eder misin?"},{it:"Sarebbe fantastico.",tr:"Harika olurdu."},{it:"Vorrei visitare Roma.",tr:"Roma'yı ziyaret etmek isterdim."},{it:"Potrebbe essere vero.",tr:"Doğru olabilir."},{it:"Dovrei studiare di più.",tr:"Daha çok çalışmalıyım."}],
+   summary:"Condizionale = kibar + hayal. Vorrei en sık kullanılan.",
+   flashcards:[{it:"vorrei",tr:"istiyorum (kibar)"},{it:"potrei",tr:"yapabilirdim"}],
+   stories:"Story 15–20"},
+
+  {id:"g22",level:"A2",icon:"↔️",title:"Comparativi",subtitle:"Karşılaştırma",prereq:"Aggettivi",
+   goal:"Daha/en karşılaştırma yapmak.",
+   rule:"più + sıfat + di = daha. meno + sıfat = daha az. il più = en.",
+   tr_compare:"'Daha uzun' = 'più alto'",
+   en_compare:"taller → più alto. less expensive → meno costoso.",
+   formula:"più/meno + sıfat + di",
+   conj:[["più alto di","daha uzun —den","Marco è più alto di Luca"],["meno costoso di","daha ucuz","È meno costoso del centro"],["il più bello","en güzel","È il più bello della classe"]],
+   usage:"Kişi/nesne karşılaştırma",
+   avoid:"Di yerine che kullanmak (özne kıyasında che gerekir)",
+   errors:[{wrong:"Più alto che Luca",right:"Più alto di Luca",note:"Kişilerle di"}],
+   examples:[{it:"Sono più alto di mio fratello.",tr:"Kardeşimden daha uzunum."},{it:"Questa pizza è più buona.",tr:"Bu pizza daha iyi."},{it:"È meno difficile del previsto.",tr:"Beklenenden daha az zor."},{it:"È il ristorante più famoso.",tr:"En ünlü restoran."},{it:"Parlo meno di te.",tr:"Senden daha az konuşuyorum."},{it:"Più veloce della luce.",tr:"Işıktan daha hızlı."}],
+   summary:"più + di = daha/den. il più = en. meno = daha az.",
+   flashcards:[{it:"più alto",tr:"daha uzun"},{it:"il più bello",tr:"en güzel"}],
+   stories:"Story 20 — Vivere a Bergamo"}
+];
+
+let gCurrentLevel = "all";
+let gOpenId = null;
+
+function gInit() {
+  gRenderGrid();
+}
+
+function gSetLevel(level, btn) {
+  gCurrentLevel = level;
+  gOpenId = null;
+  document.querySelectorAll(".ge-level-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("ge-detail-panel").innerHTML = "";
+  gRenderGrid();
+}
+
+function gRenderGrid() {
+  const data = gCurrentLevel === "all" ? GRAMMAR_DATA : GRAMMAR_DATA.filter(g => g.level === gCurrentLevel);
+  const grid = document.getElementById("ge-grid");
+  grid.innerHTML = data.map(g => `
+    <div class="ge-topic-card" onclick="gOpenTopic('${g.id}')">
+      <div class="ge-topic-header">
+        <div class="ge-topic-icon">${g.icon}</div>
+        <div class="ge-topic-info">
+          <div class="ge-topic-name">${g.title}</div>
+          <div class="ge-topic-meta">${g.subtitle}</div>
+        </div>
+        <span class="ge-topic-badge badge-${g.level.toLowerCase()}">${g.level}</span>
+        <span class="ge-topic-arrow">›</span>
+      </div>
+    </div>`).join("");
+}
+
+function gOpenTopic(id) {
+  const g = GRAMMAR_DATA.find(x => x.id === id);
+  if (!g) return;
+  gOpenId = id;
+  const panel = document.getElementById("ge-detail-panel");
+
+  const conjRows = g.conj.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+  const exRows = g.examples.map(e => `<div class="ge-ex-item"><div class="ge-ex-it">${e.it}</div><div class="ge-ex-tr">${e.tr}</div></div>`).join("");
+  const errRows = g.errors.map(e => `<div class="ge-error-item"><span class="ge-err-wrong">✗ ${e.wrong}</span><span>→</span><span class="ge-err-right">✓ ${e.right}</span><span style="font-size:.75rem;color:var(--muted)">${e.note}</span></div>`).join("");
+  const fcRows = g.flashcards.map(f => `<div class="ge-fc"><strong>${f.it}</strong>${f.tr}</div>`).join("");
+
+  panel.innerHTML = `
+    <div class="ge-detail open">
+      <div class="ge-detail-header">
+        <button class="ge-detail-back" onclick="gCloseTopic()">‹</button>
+        <div class="ge-detail-title">${g.icon} ${g.title}</div>
+        <span class="ge-topic-badge badge-${g.level.toLowerCase()}">${g.level}</span>
+      </div>
+      <div class="ge-detail-body">
+        ${g.prereq && g.prereq !== "Yok" ? `<div class="ge-section"><div class="ge-section-label">Ön Koşullar</div><div class="ge-rule-box">${g.prereq}</div></div>` : ""}
+        <div class="ge-section"><div class="ge-section-label">Öğrenme Hedefleri</div><div class="ge-rule-box">${g.goal}</div></div>
+        <div class="ge-section"><div class="ge-section-label">Kural Açıklaması</div><div class="ge-rule-box">${g.rule}</div></div>
+        <div class="ge-section"><div class="ge-section-label">Dil Karşılaştırması</div>
+          <div class="ge-compare-row">
+            <div class="ge-compare-item"><div class="ge-compare-lang">🇹🇷 Türkçe</div><div class="ge-compare-text">${g.tr_compare}</div></div>
+            <div class="ge-compare-item"><div class="ge-compare-lang">🇬🇧 İngilizce</div><div class="ge-compare-text">${g.en_compare}</div></div>
+          </div>
+        </div>
+        <div class="ge-section"><div class="ge-section-label">Yapı Formülü</div><div class="ge-formula-box">${g.formula}</div></div>
+        <div class="ge-section"><div class="ge-section-label">Çekim Tablosu</div>
+          <table class="ge-conj-table"><thead><tr><th>Form</th><th>Çekim</th><th>Not</th></tr></thead><tbody>${conjRows}</tbody></table>
+        </div>
+        <div class="ge-section"><div class="ge-section-label">Kullanım Alanları</div><div class="ge-rule-box">${g.usage}</div></div>
+        ${g.errors.length ? `<div class="ge-section"><div class="ge-section-label">En Yaygın Hatalar</div><div class="ge-error-list">${errRows}</div></div>` : ""}
+        <div class="ge-section"><div class="ge-section-label">Örnek Cümleler (IT → TR)</div><div class="ge-ex-list">${exRows}</div></div>
+        <div class="ge-section"><div class="ge-section-label">Mini Özet</div><div class="ge-summary-box"><p>${g.summary}</p></div></div>
+        <div class="ge-section"><div class="ge-section-label">Flashcard Özeti</div><div class="ge-flashcards-inline">${fcRows}</div></div>
+        <div class="ge-section"><div class="ge-section-label">Story Reader Bağlantısı</div><div class="ge-rule-box">📖 ${g.stories}</div></div>
+      </div>
+    </div>`;
+  panel.scrollIntoView({behavior:"smooth", block:"start"});
+  document.getElementById("ge-grid").style.display = "none";
+}
+
+function gCloseTopic() {
+  document.getElementById("ge-detail-panel").innerHTML = "";
+  document.getElementById("ge-grid").style.display = "";
+  gOpenId = null;
+}
+
+// ══ STORY READER ══════════════════════════════════════════
+const STORIES_DATA = [
+  {id:1,level:"A1",title:"Mi Presento",theme:"Tanışma",grammar:["Essere","Avere","Pronomi personali"],
+   story:"Ciao! Mi chiamo Marco. Sono italiano e vivo a Milano con la mia famiglia. Ho 25 anni e sono studente di psicologia all'università.\n\nLa mia vita è abbastanza semplice. Durante la settimana vado all'università, studio in biblioteca e incontro i miei amici. Nel tempo libero ascolto musica, guardo film e faccio sport.\n\nMi piace molto la psicologia perché voglio capire le persone e il loro comportamento. Un giorno vorrei diventare uno psicologo.",
+   highlights:[{it:"Mi chiamo Marco",note:"'Mi chiamo' = kendine çağırılma (chiamarsi)"},{it:"Sono italiano",note:"Essere: kimlik/milliyet"},{it:"Ho 25 anni",note:"Avere: yaş ifadesi"},{it:"Vorrei diventare",note:"Vorrei: kibar/gelecek istek"}],
+   vocab:[{it:"la famiglia",tr:"aile"},{it:"la settimana",tr:"hafta"},{it:"il tempo libero",tr:"serbest zaman"},{it:"il comportamento",tr:"davranış"},{it:"la biblioteca",tr:"kütüphane"},{it:"lo psicologo",tr:"psikolog"}],
+   questions:[{q:"Dove vive Marco?",a:"Vive a Milano con la sua famiglia."},{q:"Cosa studia?",a:"Studia psicologia all'università."},{q:"Cosa fa nel tempo libero?",a:"Ascolta musica, guarda film e fa sport."},{q:"Cosa vuole diventare?",a:"Vuole diventare uno psicologo."},{q:"Come descrive la sua vita?",a:"La sua vita è abbastanza semplice."}],
+   writing:"Descrivi la tua vita quotidiana. (Günlük hayatını anlat.)"},
+
+  {id:2,level:"A1",title:"La Mia Famiglia",theme:"Aile",grammar:["Essere","Avere","Possessivi"],
+   story:"La mia famiglia è piccola ma molto unita. Mia madre si chiama Laura ed è insegnante. Mio padre si chiama Paolo ed è medico. Ho anche una sorella minore che studia al liceo.\n\nLa sera ceniamo tutti insieme e parliamo della nostra giornata. A volte guardiamo la televisione oppure facciamo una passeggiata nel quartiere. La famiglia per me è molto importante perché mi dà sicurezza.",
+   highlights:[{it:"Mia madre / Mio padre",note:"İyelik: aile üyelerinde artikel yok"},{it:"si chiama Laura",note:"Chiamarsi: isim söyleme"},{it:"Ho una sorella minore",note:"Avere: sahiplik + sıfat uyumu"},{it:"mi dà sicurezza",note:"Dare: vermek fiili"}],
+   vocab:[{it:"unita",tr:"birleşik/sıkı fıkı"},{it:"la sorella minore",tr:"küçük kız kardeş"},{it:"il liceo",tr:"lise"},{it:"la sicurezza",tr:"güven"},{it:"il quartiere",tr:"mahalle"},{it:"la passeggiata",tr:"yürüyüş"}],
+   questions:[{q:"Che lavoro fa la madre?",a:"È insegnante."},{q:"Che lavoro fa il padre?",a:"È medico."},{q:"Quante persone ci sono in famiglia?",a:"Quattro: padre, madre, Marco e una sorella."},{q:"Cosa fanno la sera?",a:"Cenano, parlano, guardano la tv o fanno passeggiate."},{q:"Perché la famiglia è importante per Marco?",a:"Perché gli dà sicurezza."}],
+   writing:"Descrivi la tua famiglia. (Aileni anlat.)"},
+
+  {id:3,level:"A1",title:"Una Giornata Normale",theme:"Günlük Rutin",grammar:["Presente indicativo","Orario","Avverbi di tempo"],
+   story:"Ogni giorno mi sveglio alle sette del mattino. Faccio colazione con caffè e pane. Poi prendo l'autobus e vado all'università.\n\nLe lezioni iniziano alle nove e finiscono nel pomeriggio. Durante la pausa pranzo mangio con i miei amici. La sera torno a casa, studio un po' e poi guardo una serie su Netflix. Prima di dormire leggo un libro.",
+   highlights:[{it:"mi sveglio alle sette",note:"Svegliarsi: reflexive fiil + ore"},{it:"prendo l'autobus",note:"Prendere: araç kullanımı"},{it:"prima di dormire",note:"Prima di + infinitive: önce"}],
+   vocab:[{it:"svegliarsi",tr:"uyanmak"},{it:"la colazione",tr:"kahvaltı"},{it:"la pausa pranzo",tr:"öğle arası"},{it:"la lezione",tr:"ders"},{it:"il pomeriggio",tr:"öğleden sonra"},{it:"prima di",tr:"önce"}],
+   questions:[{q:"A che ora si sveglia?",a:"Si sveglia alle sette del mattino."},{q:"Come va all'università?",a:"Prende l'autobus."},{q:"A che ora iniziano le lezioni?",a:"Iniziano alle nove."},{q:"Cosa fa la sera?",a:"Studia un po' e guarda una serie su Netflix."},{q:"Cosa fa prima di dormire?",a:"Legge un libro."}],
+   writing:"Descrivi la tua giornata tipica. (Tipik bir gününü anlat.)"},
+
+  {id:4,level:"A1",title:"Al Supermercato",theme:"Alışveriş",grammar:["Presente","Avere bisogno di","Numeri"],
+   story:"Oggi vado al supermercato vicino a casa. Ho bisogno di comprare cibo per la settimana. Prendo pane, latte, pasta, frutta e verdura.\n\nIl supermercato è molto affollato perché è sabato. Alla cassa pago con la carta di credito. La cassiera è gentile e mi sorride.",
+   highlights:[{it:"Ho bisogno di comprare",note:"Avere bisogno di + infinitive"},{it:"affollato perché è sabato",note:"Perché = çünkü (neden açıklama)"},{it:"pago con la carta",note:"Pagare + con strumento ödeme"}],
+   vocab:[{it:"vicino a",tr:"yakınında"},{it:"affollato",tr:"kalabalık"},{it:"la cassa",tr:"kasa"},{it:"la cassiera",tr:"kasiyер"},{it:"sorridere",tr:"gülümsemek"},{it:"la carta di credito",tr:"kredi kartı"}],
+   questions:[{q:"Perché va al supermercato?",a:"Ha bisogno di comprare cibo per la settimana."},{q:"Cosa compra?",a:"Pane, latte, pasta, frutta e verdura."},{q:"Perché è affollato?",a:"Perché è sabato."},{q:"Come paga?",a:"Con la carta di credito."},{q:"Com'è la cassiera?",a:"È gentile e sorride."}],
+   writing:"Descrivi il tuo ultimo acquisto al supermercato. (Son alışverişini anlat.)"},
+
+  {id:5,level:"A1",title:"Al Ristorante",theme:"Yiyecek/Restoran",grammar:["Vorrei","Presente","Aggettivi"],
+   story:"La sera esco con un amico e andiamo in un ristorante italiano. Ordiniamo una pizza margherita e una bottiglia d'acqua.\n\nIl ristorante è piccolo ma molto accogliente. Il cameriere ci porta il cibo dopo pochi minuti. La pizza è molto buona e mangiamo lentamente mentre parliamo.",
+   highlights:[{it:"Ordiniamo",note:"Ordinare: sipariş vermek"},{it:"piccolo ma molto accogliente",note:"Kontrast: ma = ama"},{it:"mangiamo lentamente mentre parliamo",note:"Gerundio: mentre + presente"}],
+   vocab:[{it:"ordinare",tr:"sipariş vermek"},{it:"accogliente",tr:"sıcak/davetkar"},{it:"il cameriere",tr:"garson"},{it:"dopo pochi minuti",tr:"birkaç dakika sonra"},{it:"lentamente",tr:"yavaşça"},{it:"mentre",tr:"iken/-erken"}],
+   questions:[{q:"Con chi esce?",a:"Esce con un amico."},{q:"Cosa ordinano?",a:"Una pizza margherita e una bottiglia d'acqua."},{q:"Com'è il ristorante?",a:"È piccolo ma molto accogliente."},{q:"Quanto aspettano?",a:"Pochi minuti."},{q:"Come mangiano?",a:"Lentamente, mentre parlano."}],
+   writing:"Descrivi la tua cena preferita. (En sevdiğin yemeği anlat.)"},
+
+  {id:6,level:"A1",title:"La Mia Casa",theme:"Ev/Yaşam",grammar:["Essere","C'è/Ci sono","Possessivi"],
+   story:"Abito in un appartamento a Milano. La casa non è molto grande ma è comoda e luminosa. Ci sono due camere, una cucina e un bagno.\n\nLa mia stanza ha una scrivania, un letto e una libreria. Mi piace stare a casa perché è tranquilla e posso studiare bene.",
+   highlights:[{it:"Ci sono due camere",note:"Ci sono = var (çoğul)"},{it:"non è molto grande ma è comoda",note:"Kontrast + çifte sıfat"},{it:"posso studiare bene",note:"Potere + infinitive"}],
+   vocab:[{it:"l'appartamento",tr:"daire"},{it:"comoda",tr:"konforlu"},{it:"luminosa",tr:"aydınlık"},{it:"la scrivania",tr:"çalışma masası"},{it:"la libreria",tr:"kitaplık"},{it:"tranquilla",tr:"sakin"}],
+   questions:[{q:"Dove abita?",a:"Abita in un appartamento a Milano."},{q:"Com'è la casa?",a:"Non è molto grande ma è comoda e luminosa."},{q:"Quante stanze ci sono?",a:"Ci sono due camere, una cucina e un bagno."},{q:"Cosa c'è nella sua stanza?",a:"Ci sono una scrivania, un letto e una libreria."},{q:"Perché gli piace stare a casa?",a:"Perché è tranquilla e può studiare bene."}],
+   writing:"Descrivi la tua casa o la tua stanza. (Evini veya odanı anlat.)"},
+
+  {id:7,level:"A1",title:"All'Università",theme:"Eğitim",grammar:["Presente","Avverbi di frequenza"],
+   story:"Studio all'università di Milano. Le lezioni sono interessanti ma a volte difficili. I professori spiegano in italiano e noi prendiamo appunti.\n\nDopo le lezioni studiamo insieme in gruppo. Mi piace l'università perché imparo cose nuove ogni giorno.",
+   highlights:[{it:"a volte difficili",note:"A volte = bazen (frequenza)"},{it:"prendiamo appunti",note:"Prendere appunti = not almak"},{it:"imparo cose nuove ogni giorno",note:"Ogni giorno = her gün"}],
+   vocab:[{it:"spiegare",tr:"açıklamak"},{it:"prendere appunti",tr:"not almak"},{it:"il gruppo",tr:"grup"},{it:"a volte",tr:"bazen"},{it:"ogni giorno",tr:"her gün"},{it:"imparare",tr:"öğrenmek"}],
+   questions:[{q:"Dove studia?",a:"All'università di Milano."},{q:"Come sono le lezioni?",a:"Interessanti ma a volte difficili."},{q:"Cosa fanno durante le lezioni?",a:"I professori spiegano e loro prendono appunti."},{q:"Cosa fanno dopo le lezioni?",a:"Studiano insieme in gruppo."},{q:"Perché gli piace l'università?",a:"Perché impara cose nuove ogni giorno."}],
+   writing:"Descrivi la tua scuola o università. (Okulunu anlat.)"},
+
+  {id:8,level:"A1",title:"Il Weekend",theme:"Serbest Zaman",grammar:["Presente","Di solito/A volte","Congiuntivo assente"],
+   story:"Nel weekend non vado all'università. Di solito mi sveglio tardi e faccio una colazione lenta. Poi incontro i miei amici o guardo un film.\n\nA volte andiamo al parco o in centro città. La sera cucino qualcosa a casa e ascolto musica.",
+   highlights:[{it:"Di solito mi sveglio tardi",note:"Di solito = genellikle (frequenza)"},{it:"incontro i miei amici o guardo un film",note:"O = veya (alternatif)"},{it:"cucino qualcosa a casa",note:"Qualcosa = bir şey"}],
+   vocab:[{it:"di solito",tr:"genellikle"},{it:"tardi",tr:"geç"},{it:"lento",tr:"yavaş"},{it:"il parco",tr:"park"},{it:"il centro città",tr:"şehir merkezi"},{it:"qualcosa",tr:"bir şey"}],
+   questions:[{q:"Cosa fa di solito il sabato mattina?",a:"Si sveglia tardi e fa una colazione lenta."},{q:"Con chi esce?",a:"Con i suoi amici."},{q:"Dove va a volte?",a:"Al parco o in centro città."},{q:"Cosa fa la sera?",a:"Cucina qualcosa e ascolta musica."},{q:"Perché il weekend è diverso dalla settimana?",a:"Non va all'università e ha più tempo libero."}],
+   writing:"Descrivi il tuo weekend ideale. (İdeal haftasonunu anlat.)"},
+
+  {id:9,level:"A1",title:"Il Mio Migliore Amico",theme:"Arkadaşlık",grammar:["Essere/Stare","Presente","Aggettivi di personalità"],
+   story:"Il mio migliore amico si chiama Luca. Lo conosco da molti anni. Luca è una persona molto simpatica e intelligente. Studia ingegneria e ama la musica.\n\nSpesso studiamo insieme e usciamo nel fine settimana.",
+   highlights:[{it:"Lo conosco da molti anni",note:"Da + tempo: 'den beri' ifadesi"},{it:"simpatica e intelligente",note:"Doppio aggettivo: e ile bağlama"},{it:"Spesso studiamo insieme",note:"Spesso = sıkça (frequenza)"}],
+   vocab:[{it:"il migliore amico",tr:"en iyi arkadaş"},{it:"simpatico",tr:"sempatik"},{it:"intelligente",tr:"zeki"},{it:"l'ingegneria",tr:"mühendislik"},{it:"spesso",tr:"sıkça"},{it:"il fine settimana",tr:"haftasonu"}],
+   questions:[{q:"Come si chiama l'amico?",a:"Si chiama Luca."},{q:"Da quanto tempo lo conosce?",a:"Da molti anni."},{q:"Com'è Luca?",a:"È simpatico e intelligente."},{q:"Cosa studia Luca?",a:"Studia ingegneria."},{q:"Cosa fanno insieme?",a:"Studiano insieme e escono nel fine settimana."}],
+   writing:"Descrivi il tuo migliore amico. (En iyi arkadaşını anlat.)"},
+
+  {id:10,level:"A1",title:"Una Vacanza",theme:"Seyahat",grammar:["Passato Prossimo","Imperfetto (introduzione)","Avverbi di tempo"],
+   story:"L'estate scorsa sono andato al mare con la mia famiglia. Siamo stati in una città piccola vicino al mare.\n\nOgni giorno nuotavamo, mangiavamo gelato e facevamo passeggiate. Il tempo era sempre bello e il cielo era azzurro. È stata una vacanza molto rilassante.",
+   highlights:[{it:"L'estate scorsa sono andato",note:"Passato prossimo: verbo di moto + essere"},{it:"Ogni giorno nuotavamo",note:"Imperfetto: geçmiş alışkanlık"},{it:"il cielo era azzurro",note:"Imperfetto: geçmiş durum tanımlaması"}],
+   vocab:[{it:"l'estate scorsa",tr:"geçen yaz"},{it:"nuotare",tr:"yüzmek"},{it:"il gelato",tr:"dondurma"},{it:"azzurro",tr:"mavi"},{it:"rilassante",tr:"dinlendirici"},{it:"vicino al mare",tr:"denize yakın"}],
+   questions:[{q:"Dove è andato l'estate scorsa?",a:"È andato al mare."},{q:"Con chi è andato?",a:"Con la sua famiglia."},{q:"Com'era la città?",a:"Era piccola e vicina al mare."},{q:"Cosa facevano ogni giorno?",a:"Nuotavano, mangiavano gelato e facevano passeggiate."},{q:"Com'era il tempo?",a:"Era sempre bello e il cielo era azzurro."}],
+   writing:"Descrivi una tua vacanza. (Bir tatilini anlat.)"},
+
+  {id:11,level:"A2",title:"Il Mio Primo Viaggio in Italia",theme:"Seyahat",grammar:["Passato Prossimo","Imperfetto"],
+   story:"Due anni fa sono andato per la prima volta in Italia. Sono arrivato a Roma con l'aereo. Ho visitato il Colosseo, il Vaticano e molte piazze.\n\nOgni giorno camminavo molto e scattavo fotografie. È stata un'esperienza indimenticabile perché ho conosciuto la cultura italiana da vicino.",
+   highlights:[{it:"Due anni fa sono andato",note:"Passato prossimo + fa (zaman önce)"},{it:"Ho visitato",note:"Visitare: avere + participio"},{it:"camminavo e scattavo",note:"Imperfetto: tekrar eden geçmiş eylemler"}],
+   vocab:[{it:"per la prima volta",tr:"ilk kez"},{it:"il Colosseo",tr:"Kolezyum"},{it:"scattare fotografie",tr:"fotoğraf çekmek"},{it:"indimenticabile",tr:"unutulmaz"},{it:"da vicino",tr:"yakından"},{it:"la cultura",tr:"kültür"}],
+   questions:[{q:"Quando è andato in Italia?",a:"Due anni fa."},{q:"Come è arrivato a Roma?",a:"Con l'aereo."},{q:"Cosa ha visitato?",a:"Il Colosseo, il Vaticano e molte piazze."},{q:"Cosa faceva ogni giorno?",a:"Camminava molto e scattava fotografie."},{q:"Perché è stata un'esperienza indimenticabile?",a:"Perché ha conosciuto la cultura italiana da vicino."}],
+   writing:"Racconta un tuo viaggio. (Bir seyahatini anlat.)"},
+
+  {id:12,level:"A2",title:"Quando Ero Bambino",theme:"Çocukluk",grammar:["Imperfetto (alışkanlık)","Passato Prossimo"],
+   story:"Quando ero bambino vivevo in una piccola città. Giocavo sempre fuori con i miei amici. Non avevamo smartphone e passavamo tutto il tempo all'aperto.\n\nEro molto felice e spensierato.",
+   highlights:[{it:"Quando ero bambino",note:"Quando + imperfetto: zaman arka planı"},{it:"Giocavo sempre fuori",note:"Imperfetto: çocukluktaki alışkanlık"},{it:"Non avevamo smartphone",note:"Avere imperfetto: o zamanki durum"}],
+   vocab:[{it:"quando",tr:"ne zaman/iken"},{it:"all'aperto",tr:"açık havada"},{it:"spensierato",tr:"kaygısız"},{it:"passare il tempo",tr:"vakit geçirmek"},{it:"sempre",tr:"her zaman"},{it:"fuori",tr:"dışarıda"}],
+   questions:[{q:"Dove viveva da bambino?",a:"In una piccola città."},{q:"Cosa faceva sempre?",a:"Giocava fuori con i suoi amici."},{q:"Avevano smartphone?",a:"No, non avevano smartphone."},{q:"Come passavano il tempo?",a:"All'aperto."},{q:"Com'era da bambino?",a:"Molto felice e spensierato."}],
+   writing:"Racconta della tua infanzia. (Çocukluğunu anlat.)"},
+
+  {id:13,level:"A2",title:"Una Giornata Difficile",theme:"Günlük Hayat",grammar:["Passato Prossimo","Imperfetto","Connettivi"],
+   story:"Ieri è stata una giornata molto difficile. Mi sono svegliato tardi e ho perso l'autobus.\n\nSono arrivato in ritardo all'università e il professore non era contento. Nel pomeriggio ero molto stanco.",
+   highlights:[{it:"Mi sono svegliato tardi",note:"Svegliarsi: reflexive → essere"},{it:"ho perso l'autobus",note:"Perdere: avere + perso (participio irregolare)"},{it:"il professore non era contento",note:"Imperfetto: geçmiş durum"}],
+   vocab:[{it:"ieri",tr:"dün"},{it:"perdere",tr:"kaybetmek/kaçırmak"},{it:"in ritardo",tr:"geç"},{it:"contento",tr:"memnun"},{it:"stanco",tr:"yorgun"},{it:"la giornata",tr:"gün (boyunca)"}],
+   questions:[{q:"Com'era ieri?",a:"Era molto difficile."},{q:"Perché è arrivato tardi?",a:"Si è svegliato tardi e ha perso l'autobus."},{q:"Com'era il professore?",a:"Non era contento."},{q:"Come si sentiva nel pomeriggio?",a:"Era molto stanco."},{q:"Cosa è andato storto?",a:"Si è svegliato tardi, ha perso l'autobus ed è arrivato in ritardo."}],
+   writing:"Racconta di una giornata difficile che hai avuto. (Zor bir günü anlat.)"},
+
+  {id:14,level:"A2",title:"Dal Medico",theme:"Sağlık",grammar:["Passato Prossimo","Imperfetto","Verbi modali"],
+   story:"Non mi sentivo bene da alcuni giorni. Avevo mal di testa e febbre.\n\nSono andato dal medico che mi ha visitato con attenzione. Mi ha dato delle medicine e mi ha consigliato di riposare.",
+   highlights:[{it:"Non mi sentivo bene",note:"Sentirsi: reflexive imperfetto"},{it:"Avevo mal di testa",note:"Avere mal di: ağrı ifadesi"},{it:"mi ha consigliato di riposare",note:"Consigliare di + infinitive"}],
+   vocab:[{it:"sentirsi bene/male",tr:"iyi/kötü hissetmek"},{it:"il mal di testa",tr:"baş ağrısı"},{it:"la febbre",tr:"ateş"},{it:"visitare",tr:"muayene etmek"},{it:"la medicina",tr:"ilaç"},{it:"riposare",tr:"dinlenmek"}],
+   questions:[{q:"Perché è andato dal medico?",a:"Non si sentiva bene, aveva mal di testa e febbre."},{q:"Da quanto tempo si sentiva male?",a:"Da alcuni giorni."},{q:"Come lo ha visitato il medico?",a:"Con attenzione."},{q:"Cosa gli ha dato il medico?",a:"Delle medicine."},{q:"Cosa gli ha consigliato?",a:"Di riposare."}],
+   writing:"Descrivi un tuo problema di salute. (Sağlık probleminizi anlat.)"},
+
+  {id:15,level:"A2",title:"Primo Giorno di Lavoro",theme:"İş Hayatı",grammar:["Passato Prossimo","Aggettivi di stato d'animo"],
+   story:"Oggi ho iniziato il mio primo lavoro. Ero molto emozionato ma anche nervoso. Il mio capo mi ha spiegato tutto e i colleghi sono stati gentili.\n\nAlla fine della giornata ero stanco ma felice.",
+   highlights:[{it:"Ero molto emozionato ma anche nervoso",note:"Imperfetto: duygusal durum"},{it:"mi ha spiegato tutto",note:"Passato prossimo: öğretme eylemi"},{it:"sono stati gentili",note:"Essere + stati: plurale participio"}],
+   vocab:[{it:"il primo lavoro",tr:"ilk iş"},{it:"emozionato",tr:"heyecanlı"},{it:"nervoso",tr:"gergin"},{it:"il capo",tr:"amir/şef"},{it:"il collega",tr:"iş arkadaşı"},{it:"alla fine",tr:"sonunda"}],
+   questions:[{q:"Come si sentiva?",a:"Era molto emozionato ma anche nervoso."},{q:"Cosa ha fatto il capo?",a:"Gli ha spiegato tutto."},{q:"Come erano i colleghi?",a:"Erano gentili."},{q:"Come si sentiva alla fine?",a:"Era stanco ma felice."},{q:"Era il suo primo giorno di lavoro?",a:"Sì."}],
+   writing:"Racconta del tuo primo giorno in un posto nuovo. (Yeni bir yerdeki ilk günü anlat.)"},
+
+  {id:16,level:"A2",title:"Una Festa",theme:"Sosyal Hayat",grammar:["Passato Prossimo","Avere + participio"],
+   story:"Abbiamo organizzato una festa di compleanno. Abbiamo invitato molti amici. Abbiamo mangiato, ballato e ascoltato musica tutta la sera.\n\nÈ stata una serata divertente.",
+   highlights:[{it:"Abbiamo organizzato",note:"Organizzare: avere + organizzato"},{it:"ballato e ascoltato musica",note:"Passato prossimo lista: birden fazla eylem"},{it:"È stata una serata",note:"Essere + stato/a: impersonale yargı"}],
+   vocab:[{it:"organizzare",tr:"organize etmek"},{it:"invitare",tr:"davet etmek"},{it:"ballare",tr:"dans etmek"},{it:"la serata",tr:"akşam"},{it:"divertente",tr:"eğlenceli"},{it:"il compleanno",tr:"doğum günü"}],
+   questions:[{q:"Che tipo di festa era?",a:"Una festa di compleanno."},{q:"Chi hanno invitato?",a:"Molti amici."},{q:"Cosa hanno fatto?",a:"Hanno mangiato, ballato e ascoltato musica."},{q:"Quanto è durata la festa?",a:"Tutta la sera."},{q:"Com'è stata?",a:"Divertente."}],
+   writing:"Descrivi una festa a cui hai partecipato. (Katıldığın bir partiyi anlat.)"},
+
+  {id:17,level:"A2",title:"Una Telefonata Importante",theme:"İletişim",grammar:["Passato Prossimo","Pronomi diretti"],
+   story:"Ho ricevuto una telefonata importante dall'università. Mi hanno detto che ho superato un esame difficile.\n\nEro molto felice e ho chiamato subito i miei genitori.",
+   highlights:[{it:"Ho ricevuto",note:"Ricevere: avere + ricevuto"},{it:"Mi hanno detto",note:"Dire: pronome indiretto + passato prossimo"},{it:"ho chiamato subito",note:"Subito = hemen (zaman zarfı)"}],
+   vocab:[{it:"la telefonata",tr:"telefon görüşmesi"},{it:"superare un esame",tr:"sınavı geçmek"},{it:"i genitori",tr:"ebeveynler"},{it:"subito",tr:"hemen"},{it:"ricevere",tr:"almak"},{it:"difficile",tr:"zor"}],
+   questions:[{q:"Da dove ha ricevuto la telefonata?",a:"Dall'università."},{q:"Cos'ha saputo?",a:"Che ha superato un esame difficile."},{q:"Com'era?",a:"Molto felice."},{q:"Cosa ha fatto subito dopo?",a:"Ha chiamato i suoi genitori."},{q:"L'esame era facile?",a:"No, era difficile."}],
+   writing:"Racconta di una buona notizia che hai ricevuto. (Aldığın iyi haberi anlat.)"},
+
+  {id:18,level:"A2",title:"Alla Stazione",theme:"Seyahat/Ulaşım",grammar:["Passato Prossimo","Imperfetto","C'era/C'erano"],
+   story:"Sono arrivato alla stazione molto presto. Dovevo prendere il treno per Milano. C'era molta gente e l'atmosfera era caotica.\n\nAlla fine il treno è arrivato in orario.",
+   highlights:[{it:"Dovevo prendere il treno",note:"Imperfetto di dovere: zorunda olmak"},{it:"C'era molta gente",note:"C'era = vardı (tekil geçmiş)"},{it:"è arrivato in orario",note:"In orario = zamanında"}],
+   vocab:[{it:"la stazione",tr:"istasyon"},{it:"presto",tr:"erken"},{it:"caotico",tr:"kaotik"},{it:"l'atmosfera",tr:"atmosfer"},{it:"in orario",tr:"zamanında"},{it:"la gente",tr:"insanlar"}],
+   questions:[{q:"Perché è arrivato presto?",a:"Doveva prendere il treno."},{q:"Dov'era diretto il treno?",a:"Per Milano."},{q:"Com'era la stazione?",a:"C'era molta gente e l'atmosfera era caotica."},{q:"Il treno è arrivato in ritardo?",a:"No, è arrivato in orario."},{q:"Com'era l'atmosfera?",a:"Caotica."}],
+   writing:"Descrivi un tuo viaggio in treno o in autobus. (Tren veya otobüs yolculuğunu anlat.)"},
+
+  {id:19,level:"A2",title:"Il Mio Sogno",theme:"Hedefler/Gelecek",grammar:["Futuro","Condizionale","Verbi modali"],
+   story:"Il mio sogno è diventare uno psicologo famoso. Voglio aiutare le persone a capire meglio se stesse.\n\nStudio molto ogni giorno per raggiungere questo obiettivo.",
+   highlights:[{it:"è diventare",note:"Essere + infinitive: tanımlama"},{it:"Voglio aiutare le persone",note:"Volere + infinitive"},{it:"per raggiungere",note:"Per + infinitive: amaç ifadesi"}],
+   vocab:[{it:"il sogno",tr:"hayal/rüya"},{it:"famoso",tr:"ünlü"},{it:"se stesso",tr:"kendisi"},{it:"raggiungere",tr:"ulaşmak"},{it:"l'obiettivo",tr:"hedef"},{it:"capire",tr:"anlamak"}],
+   questions:[{q:"Qual è il sogno di Marco?",a:"Diventare uno psicologo famoso."},{q:"Cosa vuole fare?",a:"Aiutare le persone a capire meglio se stesse."},{q:"Come cerca di raggiungere il suo obiettivo?",a:"Studia molto ogni giorno."},{q:"È già psicologo?",a:"No, studia ancora."},{q:"Perché vuole diventare psicologo?",a:"Per aiutare le persone."}],
+   writing:"Descrivi il tuo sogno o il tuo obiettivo. (Hayalini veya hedefini anlat.)"},
+
+  {id:20,level:"A2",title:"Vivere a Bergamo",theme:"Şehir Hayatı",grammar:["Presente","Passato Prossimo","Espressioni di tempo"],
+   story:"Vivo a Bergamo da due anni. La città è tranquilla e molto bella. Mi piace passeggiare nel centro storico e bere un caffè nei bar.\n\nMi sento a casa qui.",
+   highlights:[{it:"Vivo a Bergamo da due anni",note:"Da + presente: 'den beri' (hâlâ devam)"},{it:"Mi piace passeggiare",note:"Piacere + infinitive"},{it:"Mi sento a casa",note:"Sentirsi: kendini hissetmek"}],
+   vocab:[{it:"tranquillo",tr:"sakin"},{it:"il centro storico",tr:"tarihi merkez"},{it:"passeggiare",tr:"yürüyüş yapmak"},{it:"sentirsi a casa",tr:"evinde hissetmek"},{it:"da due anni",tr:"iki yıldır"},{it:"il bar",tr:"kafe/bar"}],
+   questions:[{q:"Da quanto tempo vive a Bergamo?",a:"Da due anni."},{q:"Com'è la città?",a:"Tranquilla e molto bella."},{q:"Cosa gli piace fare?",a:"Passeggiare nel centro storico e bere un caffè."},{q:"Si sente a casa a Bergamo?",a:"Sì, si sente a casa."},{q:"Quale aggettivo usa per la città?",a:"Tranquilla e bella."}],
+   writing:"Descrivi la città dove vivi. (Yaşadığın şehri anlat.)"}
+];
+
+let stCurrentLevel = "all";
+
+function stInit() {
+  stRenderGrid();
+}
+
+function stSetLevel(level, btn) {
+  stCurrentLevel = level;
+  document.querySelectorAll(".st-level-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("st-detail-panel").innerHTML = "";
+  stRenderGrid();
+}
+
+function stRenderGrid() {
+  const data = stCurrentLevel === "all" ? STORIES_DATA : STORIES_DATA.filter(s => s.level === stCurrentLevel);
+  const grid = document.getElementById("st-grid");
+  grid.innerHTML = data.map(s => `
+    <div class="st-card" onclick="stOpenStory(${s.id})">
+      <div class="st-card-header">
+        <div class="st-card-num">${s.id}</div>
+        <div class="st-card-info">
+          <div class="st-card-title">${s.title}</div>
+          <div class="st-card-meta">${s.theme} · ${s.grammar.slice(0,2).join(", ")}</div>
+        </div>
+        <span class="st-card-badge badge-${s.level.toLowerCase()}">${s.level}</span>
+      </div>
+    </div>`).join("");
+}
+
+function stOpenStory(id) {
+  const s = STORIES_DATA.find(x => x.id === id);
+  if (!s) return;
+  const panel = document.getElementById("st-detail-panel");
+
+  const storyParas = s.story.split("\n\n").map(p => `<p>${p}</p>`).join("");
+  const highlights = s.highlights.map(h => `<div class="st-highlight-item"><div class="st-hl-it">${h.it}</div><div class="st-hl-note">${h.note}</div></div>`).join("");
+  const vocab = s.vocab.map(v => `<div class="st-vocab-item"><span class="st-vocab-it">${v.it}</span><span class="st-vocab-tr">${v.tr}</span></div>`).join("");
+  const questions = s.questions.map((q, i) => `
+    <div class="st-q-item">
+      <div class="st-q-num">Soru ${i+1}</div>
+      <div class="st-q-text">${q.q}</div>
+      <button class="st-q-toggle" onclick="stToggleAnswer(this)">Cevabı göster ▾</button>
+      <div class="st-q-answer">${q.a}</div>
+    </div>`).join("");
+  const grammarList = s.grammar.map(g => `<span class="st-chip"><strong>${g}</strong></span>`).join("");
+
+  panel.innerHTML = `
+    <div class="st-detail open">
+      <div class="st-detail-header">
+        <button class="st-detail-back" onclick="stCloseStory()">‹</button>
+        <div class="st-detail-title">📖 ${s.id}. ${s.title}</div>
+        <span class="st-card-badge badge-${s.level.toLowerCase()}">${s.level}</span>
+      </div>
+      <div class="st-detail-body">
+        <div class="st-tab-row">
+          <button class="st-tab active" onclick="stSwitchTab(this,'hikaye')">📜 Hikaye</button>
+          <button class="st-tab" onclick="stSwitchTab(this,'gramer')">📐 Gramer</button>
+          <button class="st-tab" onclick="stSwitchTab(this,'kelime')">📋 Kelimeler</button>
+          <button class="st-tab" onclick="stSwitchTab(this,'sorular')">❓ Sorular</button>
+          <button class="st-tab" onclick="stSwitchTab(this,'yaz')">✍️ Yaz</button>
+        </div>
+        <div class="st-tab-panel active" data-panel="hikaye">
+          <div class="st-meta-chips">${grammarList}<span class="st-chip">${s.theme}</span></div>
+          <div class="st-story-text">${storyParas}</div>
+        </div>
+        <div class="st-tab-panel" data-panel="gramer">
+          <div class="st-section-label">Gramer Vurguları</div>
+          <div class="st-grammar-highlights">${highlights}</div>
+          <div class="st-section-label" style="margin-top:14px">Hedef Gramer</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">${s.grammar.map(g=>`<span class="st-chip"><strong>${g}</strong></span>`).join("")}</div>
+        </div>
+        <div class="st-tab-panel" data-panel="kelime">
+          <div class="st-section-label">Kelime Listesi</div>
+          <div class="st-vocab-list">${vocab}</div>
+        </div>
+        <div class="st-tab-panel" data-panel="sorular">
+          <div class="st-section-label">Anlama Soruları</div>
+          <div class="st-q-list">${questions}</div>
+        </div>
+        <div class="st-tab-panel" data-panel="yaz">
+          <div class="st-section-label">Yazma Görevi</div>
+          <div class="st-writing-box"><p>✍️ ${s.writing}</p></div>
+          <div class="st-section-label" style="margin-top:14px">Konuşma Görevi</div>
+          <div class="st-writing-box"><p>🗣️ Bu hikayedeki karakterle ilgili 3 soru sor ve cevapla.</p></div>
+        </div>
+      </div>
+    </div>`;
+  panel.scrollIntoView({behavior:"smooth", block:"start"});
+  document.getElementById("st-grid").style.display = "none";
+}
+
+function stCloseStory() {
+  document.getElementById("st-detail-panel").innerHTML = "";
+  document.getElementById("st-grid").style.display = "";
+}
+
+function stSwitchTab(btn, panelName) {
+  const body = btn.closest(".st-detail-body");
+  body.querySelectorAll(".st-tab").forEach(t => t.classList.remove("active"));
+  body.querySelectorAll(".st-tab-panel").forEach(p => p.classList.remove("active"));
+  btn.classList.add("active");
+  body.querySelector(`[data-panel="${panelName}"]`).classList.add("active");
+}
+
+function stToggleAnswer(btn) {
+  const ans = btn.nextElementSibling;
+  const showing = ans.classList.toggle("show");
+  btn.textContent = showing ? "Cevabı gizle ▴" : "Cevabı göster ▾";
+}
+
+// ═══ ADAPTIVE QUIZ ENGINE ═══════════════════════════════════
 const QUIZ_LESSONS = [
   {
     id:"A0-01", level:"A0", type:"grammar", title:"Essere — To Be",
@@ -877,19 +1717,14 @@ const QUIZ_LESSONS = [
   }
 ];
 
-// ── KNOWLEDGE GRAPH ─────────────────────────────────────────
 const KNOWLEDGE_GRAPH = {};
 QUIZ_LESSONS.forEach(l => { KNOWLEDGE_GRAPH[l.id] = l.prerequisites; });
 
 function canAccess(lessonId) {
   const prereqs = KNOWLEDGE_GRAPH[lessonId] || [];
-  return prereqs.every(p => {
-    const m = qGetMastery(p);
-    return m >= 0.3;
-  });
+  return prereqs.every(p => (qGetMastery(p) >= 0.3));
 }
 
-// ── MASTERY / PROGRESS ──────────────────────────────────────
 function qLoadProgress() {
   try { return JSON.parse(localStorage.getItem("quiz_progress_v1") || "null") || { mastery:{}, xp:0, streak:0, lastDate:null }; }
   catch(e) { return { mastery:{}, xp:0, streak:0, lastDate:null }; }
@@ -909,7 +1744,6 @@ function qUpdateMastery(id, correct) {
   qRefreshStatsBar();
 }
 
-// ── ADAPTIVE SELECTOR ───────────────────────────────────────
 function qSelectWeakest() {
   const accessible = QUIZ_LESSONS.filter(l => canAccess(l.id));
   if (!accessible.length) return QUIZ_LESSONS[0];
@@ -921,7 +1755,6 @@ function qSelectWeakest() {
   }, accessible[0]);
 }
 
-// ── QUESTION GENERATOR ──────────────────────────────────────
 function qGenTranslation(lesson, itToTr) {
   const ex = lesson.examples[Math.floor(Math.random() * lesson.examples.length)];
   return {
@@ -976,13 +1809,11 @@ function qGenQuestion(lesson) {
   return qGenFillBlank(lesson);
 }
 
-// ── QUIZ STATE ──────────────────────────────────────────────
 let qState = {
   lesson: null, question: null, answered: false,
   sessionCorrect: 0, sessionWrong: 0, sessionTotal: 0
 };
 
-// ── UI FUNCTIONS ────────────────────────────────────────────
 function qRefreshStatsBar() {
   const p = qLoadProgress();
   document.getElementById("qs-xp").textContent = p.xp || 0;
@@ -1041,7 +1872,6 @@ function quizShowStart() {
   qRefreshStatsBar();
 }
 
-
 function quizStartAdaptive() {
   const lesson = qSelectWeakest();
   quizStartLesson(lesson.id);
@@ -1062,8 +1892,7 @@ function quizStartLesson(id) {
 }
 
 function quizNextQuestion() {
-  const lesson = qState.lesson;
-  qState.question = qGenQuestion(lesson);
+  qState.question = qGenQuestion(qState.lesson);
   qState.answered = false;
   renderQuestion(qState.question);
 }
@@ -1142,8 +1971,6 @@ function showFeedback(correct, answer) {
 
   const nextBtn = document.getElementById("q-next-btn");
   nextBtn.style.display = "block";
-
-  // Auto-advance if session limit reached
   if (qState.sessionTotal >= 10) {
     nextBtn.textContent = "Sonuçları Gör ✓";
     nextBtn.onclick = quizShowDone;
@@ -1153,9 +1980,7 @@ function showFeedback(correct, answer) {
   }
 }
 
-function quizNext() {
-  quizNextQuestion();
-}
+function quizNext() { quizNextQuestion(); }
 
 function quizShowDone() {
   document.getElementById("quiz-question-area").style.display = "none";
@@ -1168,10 +1993,7 @@ function quizShowDone() {
   qRenderGraph();
 }
 
-// Init when quiz page first loads
-function quizInit() {
-  quizShowStart();
-}
+function quizInit() { quizShowStart(); }
 </script>
-
 </body>
+</html>
